@@ -1,0 +1,12 @@
+@font-face {
+    font-family: ;
+    src: url();
+}
+body {
+    margin: 0px;
+}
+.elementMain {
+    background: rgb(86,136,216);
+    background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
+    margin: 0px;
+}
