@@ -1,7 +1,9 @@
 @font-face {
-    font-family: ;
-    src: url();
+    font-family: "Proxima Nova local";
+    src: local("dependencies\fonts\Proxima Nova\proximanova_extrabold.otf") format("opentype");
+    
 }
+
 body {
     margin: 0px;
 }
@@ -9,4 +11,34 @@ body {
     background: rgb(86,136,216);
     background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
     margin: 0px;
+    color: white;
+    font-family: "Proxima Nova local";
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    
+    
+
+}
+.promptQuestion {
+    font-size: 2em;
+}
+.titleText {
+    font-family: "Proxima Nova";
+    margin: 0px;
+}
+.surveyInput {
+    border-radius: 10px;
+    border: 0px solid black;
+    height: 40px;
+    margin-bottom: 20px;
+    width: calc(100%);
+    
+
+}
+.surveyInput::placeholder {
+    font-size: 20px;
+    font-family: "Comfortaa";
 }
