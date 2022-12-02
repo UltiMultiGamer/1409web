@@ -7,17 +7,19 @@
 body {
     margin: 0px;
 }
+
 .elementMain {
     background: rgb(86,136,216);
     background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
     margin: 0px;
     color: white;
-    font-family: "Proxima Nova local";
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    font-family: "Proxima Nova";
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
     padding-right: 15px;
     padding-left: 15px;
     padding-top: 10px;
+    padding-bottom: 40px;
     
     
 
@@ -32,13 +34,41 @@ body {
 .surveyInput {
     border-radius: 10px;
     border: 0px solid black;
-    height: 40px;
-    margin-bottom: 20px;
+    height: 60px;
     width: calc(100%);
-    
+    font-size: 20px;
 
 }
+.surveyInput:active {
+    animation-name: inputFocusAnim;
+    animation-duration: 2s;
+
+}
+
 .surveyInput::placeholder {
+
     font-size: 20px;
     font-family: "Comfortaa";
+    color: rgba(0, 0, 0, 0.332);
+}
+.menuIcon {
+ outline: 2px white solid;;
+ height: 100px;
+ width: 100px;
+
+}
+.navbarCont {
+    display: flex;
+    justify-content: right;
+}
+
+/* animation section! */
+@keyframes inputFocusAnim 
+{
+from {
+outline: red 0px solid;
+}
+to {
+outline: red 3px solid;
+}
 }
