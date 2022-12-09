@@ -8,13 +8,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+
     </head>
     <body>
+        <div class="elementMainExtended" style="display:none ;"></div>
         <div class="elementMain">
-            <div class="navbarCont"><h4 class="titleText">#дума1409</h4> <div class="menuIcon"></div></div>
+            <div class="navbarCont">
+                
+                <h4 class="titleText">#дума1409</h4>  <div class="menuIcon">
+
+                    <button class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" >
+                    <svg class="hamburger" viewBox = "0 0 100 100" width="250" >
+                        <rect class="top" x="10" y="25px" width="80" height="10" rx="5" fill="white"></rect>
+                        <rect class="top" x="10" y="45px" width="80" height="10" rx="5" fill="white"></rect>
+                        <rect class="top" x="10" y="65px" width="80" height="10" rx="5" fill="white"></rect>
+
+                    </svg>
+
+                </button></div>   
+            
+            </div>
             <h3 class="promptQuestion">Знаете как сделать школу лучше? <br>- Напишите нам!</h3>
-            <label for="messageInputId">Введите сообщение</label>
-            <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off">
+            
+            <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="changeClass()">
+
+            <input  type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="changeClass()">
         </div>
         <div class="newsSection">
             <label class="newsLabel">Последние события:</label>
@@ -31,7 +49,18 @@
             </div>
             <p>Remaining: 15 minutes</p>
         </div>
-
+        <script>
+            
+                function changeClass() { 
+                var element = document.getElementsByClassName("elementMain");
+                for(let i = 0; i < element.length; i += 1) {
+                    element.item(i).classList.toggle("elementMainExtended");
+                    }
+                
+        }
+               
+        
+         </script>
     </body>
 
 </html>

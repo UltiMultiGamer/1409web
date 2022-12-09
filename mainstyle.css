@@ -1,11 +1,7 @@
-@font-face {
-    font-family: "Proxima Nova local";
-    src: local("dependencies\fonts\Proxima Nova\proximanova_extrabold.otf") format("opentype");
-    
-}
 
 body {
     margin: 0px;
+    height: 2000px;
 }
 
 .elementMain {
@@ -20,8 +16,17 @@ body {
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 40px;
+    height:700px ;
+    transition: all 2s;
+    overflow: hidden
+    ;
     
     
+
+}
+.elementMainExtended {
+    height:1000px ;
+    transition: all 2s;
 
 }
 .promptQuestion {
@@ -37,12 +42,13 @@ body {
     height: 60px;
     width: calc(100%);
     font-size: 20px;
+    
 
 }
-.surveyInput:active {
-    animation-name: inputFocusAnim;
-    animation-duration: 2s;
 
+.surveyInput:focus {
+    border: 0px solid black;
+    outline: none;
 }
 
 .surveyInput::placeholder {
@@ -52,23 +58,30 @@ body {
     color: rgba(0, 0, 0, 0.332);
 }
 .menuIcon {
- outline: 2px white solid;;
- height: 100px;
- width: 100px;
+ outline: 10px white solid;;
+ border-radius: 1rem;
 
 }
+
 .navbarCont {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
 }
 
+
+.hamburgerbutton {
+    background: transparent;
+    border-radius: 1rem;
+    /* remove either div border or button border */
+    /* menuIcon = div, hamburger = svg, hamburgerbutton = button */
+    border: 0px solid black;
+}
+rect {
+    background-color: white;
+}
+.hamburgerbutton .top {
+    fill: red
+}
+
+
 /* animation section! */
-@keyframes inputFocusAnim 
-{
-from {
-outline: red 0px solid;
-}
-to {
-outline: red 3px solid;
-}
-}
