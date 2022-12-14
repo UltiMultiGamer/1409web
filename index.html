@@ -12,33 +12,48 @@
     </head>
     <body>
         <div class="elementMainExtended" style="display:none ;"></div>
-        <div class="elementMain">
-            <div class="navbarCont">
+        <div class="navbarCont">
                 
-                <h4 class="titleText">#дума1409</h4>  <div class="menuIcon">
+            <h4 class="titleText"><a href="index.html">#ДУМА1409</a></h4>  
 
-                    <button class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" >
-                    <svg class="hamburger" viewBox = "0 0 100 100" width="250" >
-                        <rect class="top" x="10" y="25px" width="80" height="10" rx="5" fill="white"></rect>
-                        <rect class="top" x="10" y="45px" width="80" height="10" rx="5" fill="white"></rect>
-                        <rect class="top" x="10" y="65px" width="80" height="10" rx="5" fill="white"></rect>
+                <button class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false">
+                <svg class="hamburger" viewBox = "0 0 100 100" width="40" height="50">
+                    <rect class="line first" x="10" y="25px" width="80" height="10" rx="5" fill="#9E9E9E"></rect>
+                    <rect class="line second" x="10" y="45px" width="80" height="10" rx="5" fill="#9E9E9E"></rect>
+                    <rect class="line third" x="10" y="65px" width="80" height="10" rx="5" fill="#9E9E9E"></rect>
 
-                    </svg>
-
-                </button></div>   
+                </svg>
+            </button>
             
-            </div>
+             
+        
+        </div>
+        <div class="elementMain">
+            
             <h3 class="promptQuestion">Знаете как сделать школу лучше? <br>- Напишите нам!</h3>
             
             <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="changeClass()">
 
-            <input  type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="changeClass()">
+            
         </div>
         <div class="newsSection">
             <label class="newsLabel">Последние события:</label>
-
+                    <!-- THIS IS THE CAROSEL -->
+                    <div id="myCarousel">
+                        <div class="swiper-container">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                     <!-- END OF CARO -->
                 <div class="newsCarousel">
-
+                    <div class="newsElement"></div>
                 </div>
             
         </div>
@@ -49,15 +64,36 @@
             </div>
             <p>Remaining: 15 minutes</p>
         </div>
+        <script src="slide.js"></script>
         <script>
-            
+                    // survey open logic
                 function changeClass() { 
                 var element = document.getElementsByClassName("elementMain");
                 for(let i = 0; i < element.length; i += 1) {
                     element.item(i).classList.toggle("elementMainExtended");
-                    }
+                    }}
+
+                    // navbar logic
+                    const buttons = document.querySelectorAll("button");
+
+                    buttons.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const currentState = button.getAttribute("data-state");
+
+                        if (!currentState || currentState === "closed") {
+                        button.setAttribute("data-state", "opened");
+                        button.setAttribute("aria-expanded", "true");
+                        } else {
+                        button.setAttribute("data-state", "closed");
+                        button.setAttribute("aria-expanded", "false");
+                        }
+                    });
+                    });
+
                 
-        }
+
+                
+
                
         
          </script>

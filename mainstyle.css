@@ -2,6 +2,7 @@
 body {
     margin: 0px;
     height: 2000px;
+    font-family: "Proxima Nova";
 }
 
 .elementMain {
@@ -9,32 +10,48 @@ body {
     background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
     margin: 0px;
     color: white;
-    font-family: "Proxima Nova";
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 40px;
-    height:700px ;
-    transition: all 2s;
-    overflow: hidden
-    ;
+    font-family: "Proxima Nova Extrabold";
+    /* border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px; */
+    padding-right: 16px;
+    padding-left: 16px;
+    height:250px ;
+    transition: all 1s;
+    overflow: hidden;
+    padding-top: 64px;
     
     
 
 }
 .elementMainExtended {
     height:1000px ;
-    transition: all 2s;
+    transition: all 1s;
 
 }
 .promptQuestion {
     font-size: 2em;
 }
+
 .titleText {
+    font-style: none;
+    text-decoration: none;
     font-family: "Proxima Nova";
     margin: 0px;
+    font-size: 18px;
+    
+    letter-spacing: 2px;
+    padding: 16px;
+    
+    
+}
+.titleText >* {
+    font-style: none;
+    text-decoration: none;
+    color: #9E9E9E;
+    letter-spacing: 2px;
+    font-family:"Proxima Nova Extrabold"
+    
+    
 }
 .surveyInput {
     border-radius: 10px;
@@ -42,6 +59,7 @@ body {
     height: 60px;
     width: calc(100%);
     font-size: 20px;
+    margin-bottom: 32px;
     
 
 }
@@ -55,33 +73,95 @@ body {
 
     font-size: 20px;
     font-family: "Comfortaa";
-    color: rgba(0, 0, 0, 0.332);
 }
-.menuIcon {
- outline: 10px white solid;;
- border-radius: 1rem;
-
-}
-
 .navbarCont {
     display: flex;
     justify-content: space-between;
-}
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    z-index: 9;
 
-
-.hamburgerbutton {
-    background: transparent;
-    border-radius: 1rem;
-    /* remove either div border or button border */
-    /* menuIcon = div, hamburger = svg, hamburgerbutton = button */
-    border: 0px solid black;
-}
+} 
 rect {
     background-color: white;
 }
-.hamburgerbutton .top {
-    fill: red
+.newsSection {
+    margin-top: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
 }
 
+.newsLabel {
+    color: #9E9E9E;
+    padding: 10px;
+    font-family:"Proxima Nova Extrabold";
+    padding: 0px;
+    font-size: 20px;
+}
+/* SLIDER CSS SHIT */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+/* END OF SLIDER CSS SHIT */
+/* NAVBAR ANIMATION SHIT START */
+
+/* remove either div border or button border */
+/* menuIcon = div, hamburger = svg, hamburgerbutton = button */
+.hamburgerbutton {
+    background: transparent;
+    border-radius: 1rem;
+    border-radius: 10px;
+    border: 0px solid white;
+    cursor: pointer;
+    
+
+}
+.hamburgerbutton .line {
+    transition: y 600ms ease, rotate 600ms ease,fill  600ms ease;
+    transform-origin: center;
+
+}
+.hamburgerbutton[aria-expanded="true"] .line {
+    
+    y: 45px;
+    rotate: 45deg;
+    
+    
+}
+.hamburgerbutton[aria-expanded="true"] .second {
+    rotate: -45deg;
+}
+.swiper {
+    width: 600px;
+    height: 300px;
+  }
+
+
+
+/* NAVBAR ANIMATION SHIT END */
 
 /* animation section! */
