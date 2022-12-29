@@ -1,7 +1,7 @@
 
 body {
     margin: 0px;
-    height: 2000px;
+    
     font-family: "Proxima Nova";
 }
 
@@ -28,8 +28,8 @@ body {
     transition: all 1s;
 
 }
-.promptQuestion {
-    font-size: 2em;
+#promptQuestion {
+    font-size: 32px;
 }
 
 .titleText {
@@ -38,7 +38,6 @@ body {
     font-family: "Proxima Nova";
     margin: 0px;
     font-size: 18px;
-    
     letter-spacing: 2px;
     padding: 16px;
     
@@ -96,36 +95,16 @@ rect {
     padding-left: 16px;
 }
 
-.newsLabel {
+.newsCaption {
     color: #9E9E9E;
-    padding: 10px;
+    padding: 100px;
     font-family:"Proxima Nova Extrabold";
     padding: 0px;
     font-size: 20px;
+    
 }
 /* SLIDER CSS SHIT */
-.swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
+
 /* END OF SLIDER CSS SHIT */
 /* NAVBAR ANIMATION SHIT START */
 
@@ -146,22 +125,144 @@ rect {
 
 }
 .hamburgerbutton[aria-expanded="true"] .line {
-    
     y: 45px;
     rotate: 45deg;
-    
     
 }
 .hamburgerbutton[aria-expanded="true"] .second {
     rotate: -45deg;
 }
-.swiper {
-    width: 600px;
-    height: 300px;
-  }
-
-
 
 /* NAVBAR ANIMATION SHIT END */
 
-/* animation section! */
+
+
+#lesson {
+    font-family:"Proxima Nova Extrabold";
+    color: #9E9E9E;
+    font-size: 28px;
+    margin: 0px;
+}
+#sched {
+    font-family:"Proxima Nova Extrabold";
+    color: #9E9E9E;
+    margin: 2px;
+    
+
+}
+#remaining {
+    font-family:"Proxima Nova Extrabold";
+    color: #9E9E9E;
+
+}
+
+#lessonTimeContainer {
+    margin-left: 16px;
+    padding: 8px;
+    width:calc(100% - 48px);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-top: 32px;
+    border-radius: 16px;
+    height: 56px;
+}
+#lessonTimeContainer::before {
+    
+    
+    
+    content: " ";
+    position: absolute;
+    margin-left: -8px;
+    height: 56px;
+    width: calc(var(--before-width) - 48px);
+    background-color: inherit;
+    background-color: rgb(118, 228, 118);
+    border-radius: 16px;
+    padding: 8px;
+    z-index: -9;
+    /* the width of the element will be defined by both the padding and the width */
+    transition: all 1s;
+    
+
+}
+.newsElement {
+width: 130px;
+  height: 200px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  margin-right: 18px;
+  text-align: center;
+  border-radius: 16px;
+  background-color: black;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+  
+
+
+}
+.newsCaro {
+    overflow-x: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+
+
+}
+.newsLabel {
+    margin-top: 130px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    width: 110px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    }
+.newsSubLabel {
+    font-size: 12px;
+    text-align: left;
+    margin-top: 2px;
+    margin-left: 10px;
+
+}
+
+.newsCaro::-webkit-scrollbar {
+    display: none;
+  }
+  footer {
+    background-color: #EFEFEF;
+    margin-top: 300px;
+    height: 15  0px;
+    flex: auto;
+    justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.footerText {
+    padding: 20px;
+}
+.footerSocials {
+    padding: 20px;
+}
+.footerSocials > * {
+    padding: 10px;
+}
+
+@media only screen and (max-width:555px) {
+    .elementMain {
+
+        height: 282px;
+    }
+
+}

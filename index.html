@@ -30,42 +30,101 @@
         </div>
         <div class="elementMain">
             
-            <h3 class="promptQuestion">Знаете как сделать школу лучше? <br>- Напишите нам!</h3>
+            <h3 id="promptQuestion">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
             
             <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="changeClass()">
 
             
         </div>
         <div class="newsSection">
-            <label class="newsLabel">Последние события:</label>
+            <p class="newsCaption">Последние события:</p>
                     <!-- THIS IS THE CAROSEL -->
-                    <div id="myCarousel">
-                        <div class="swiper-container">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">Slide 1</div>
-                            <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
-                          </div>
-                          <div class="swiper-pagination"></div>
-                          <div class="swiper-button-prev"></div>
-                          <div class="swiper-button-next"></div>
-                        </div>
-                      </div>
-                     <!-- END OF CARO -->
-                <div class="newsCarousel">
-                    <div class="newsElement"></div>
+                <div class="newsCaro">
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Lots of Long Text</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    <div class="newsElement">
+                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <p class="newsSubLabel">01/03</p>
+                    </div>
+                    
+                    
+                    
                 </div>
+                <!-- END OF CARO -->
             
         </div>
         <div class="scheduleSection">
-            <div class="lessonTimeContainer">
-                <p>Lesson</p>
-                <p>08:30-09:15</p>   
+            <div id="lessonTimeContainer">
+                <div id="lessonAndSched">
+                <p id="lesson"></p>
+                <p id="sched"></p>  
+                </div>
+                <div id="remainingCont">
+                <!-- <p id="time" onload="currentTime()"></p> -->
+                <p id="remaining"></p> 
+                </div>
             </div>
-            <p>Remaining: 15 minutes</p>
         </div>
-        <script src="slide.js"></script>
+
+        <footer>
+            <div class="footerText">
+                <h1>Дума 1409</h1>
+                Созданно с любовью ученической Думой школы №1409.
+                <br>
+                Веб-разработка: Фёдор Василенко
+                <br>
+                Дезайн/Team Lead: Глеб Пряхин
+
+            </div>
+
+
+
+            <div class="footerSocials">
+                <a href=""><img src="telegram.png"></a>
+                <a href=""><img src="VK.png"></a>
+            </div>
+        </footer>
+        
         <script>
+
+                function displaySurvey() {
+                    
+
+                }
                     // survey open logic
                 function changeClass() { 
                 var element = document.getElementsByClassName("elementMain");
@@ -74,11 +133,11 @@
                     }}
 
                     // navbar logic
-                    const buttons = document.querySelectorAll("button");
+                    var buttons = document.querySelectorAll("button");
 
                     buttons.forEach((button) => {
                     button.addEventListener("click", () => {
-                        const currentState = button.getAttribute("data-state");
+                        var currentState = button.getAttribute("data-state");
 
                         if (!currentState || currentState === "closed") {
                         button.setAttribute("data-state", "opened");
@@ -89,6 +148,152 @@
                         }
                     });
                     });
+
+
+                    // function currentTime() {
+                    //     let date = new Date(); 
+                    //     let hh = date.getHours();
+                    //     let mm = date.getMinutes();
+                    //     let ss = date.getSeconds();
+                    //     let dw = date.getDay()
+                    //     let session = "AM";
+
+                    //     if(hh === 0){
+                    //         hh = 12;
+                    //     }
+                    //     if(hh > 12){
+                    //         hh = hh - 12;
+                    //         session = "PM";
+                    //     }
+
+                    //     hh = (hh < 10) ? "0" + hh : hh;
+                    //     mm = (mm < 10) ? "0" + mm : mm;
+                    //     ss = (ss < 10) ? "0" + ss : ss;
+                            
+                    //     let time = hh + ":" + mm + ":" + ss + " " + session;
+
+                    //     var remainvalue = 0 ;
+                    //     var progress = 0
+                        
+
+                    //     if (hh<) {
+
+                    //     }
+
+                    //     // document.getElementById("time").innerText = time; 
+                    //     // let t = setTimeout(function(){ currentTime() }, 1000);
+
+                    //     }
+                    //     currentTime()
+                    
+                    
+
+                    var startTimes = [8.5, 9.4167, 10.4167, 11.4167, 12.5, 13.4167, 14.3333, 15.1667, 15.917,0];
+                    var endTimes = [9.25, 10.1667, 11.1667, 12.1667, 13.25 , 14.1667, 15.0833, 15.9167, 32.5,8.5];
+
+                    function updateProgressBar() {
+                    var currentTime = new Date();
+                    var currentSecond = currentTime.getSeconds();
+                    var currentHour = currentTime.getHours();
+                    var currentMinute = currentTime.getMinutes();
+                    var currentTimeInHours = currentHour + currentMinute / 60;
+                   
+                    console.log(currentTimeInHours)
+
+                    for (let i = 0; i < startTimes.length; i++) {
+                        
+                        if (currentTimeInHours >= startTimes[i] && currentTimeInHours < endTimes[i]) {
+                        // time interval is in progress sine this is within a defined time interval
+                        var duration = endTimes[i] - startTimes[i];
+                        var timePassed = currentTimeInHours - startTimes[i];
+                        var percentage = (timePassed / duration) * 100;
+                        let remainder = Math.round((duration-timePassed)*60)
+                        if (i+1==10) {
+                            duration = endTimes[i-1] - startTimes[i-1]
+                            timePassed = currentTimeInHours + 24-startTimes[i-1]
+                            remainder = Math.round((duration-timePassed)*60 )
+                            percentage = (timePassed / duration) * 100 ;
+                            
+                            
+                            
+                        }
+                        console.log(currentSecond)
+                        console.log("INTERVAL LOOP")
+                        updateProgressBarColor('green');
+                        updateProgressBarWidth(percentage, currentSecond);
+                        updateCurrentInterval(i + 1 + " Урок"); 
+                        updateRemained(remainder)
+                        return;
+                        } else if (currentTimeInHours >= endTimes[i] && currentTimeInHours < startTimes[i + 1]) {
+                        var duration = startTimes[i + 1] - endTimes[i];
+                        var timePassed = currentTimeInHours - endTimes[i];
+                        var percentage = (timePassed / duration) * 100;
+                        let remainder = Math.round((duration-timePassed)*60) 
+                        // console.log(remainder)
+                        //break in progress since this is in between a defined time interval
+                        console.log("BREAK LOOP ")
+                        updateProgressBarColor('orange');
+                        updateProgressBarWidth(percentage, currentSecond);
+                        updateCurrentInterval('Перемена'); // update current interval
+                        updateRemained(remainder)
+                        return;
+                         }// else if (currentTimeInHours >= 0 && currentTimeInHours <= 8.5) 
+                       
+                    }
+                    }
+
+                    function updateProgressBarColor(color) {
+                    // code to update progress bar color goes here
+                    document.getElementById('lessonTimeContainer').style.setProperty('--before-background-color', color);
+                    }
+
+                    function updateProgressBarWidth(percentage,addPrecision) {
+                    // code to update progress bar width goes here
+                    
+                    console.log("WIDTH PERCENTAGE: "+ percentage)
+                    document.getElementById('lessonTimeContainer').style.setProperty('--before-width', percentage + "%");
+                    
+                    console.log(addPrecision)
+                    }
+                    
+
+                    function updateCurrentInterval(interval) {
+                    // code to update current interval goes here
+                        
+
+
+
+                        if ( interval == "10 Урок" || interval == "9 Урок"){
+                            interval = "Свободное Время"
+
+                        }
+                        document.getElementById('lesson').innerText = interval;
+
+
+                    }
+                    function updateRemained(remainder) {
+                        document.getElementById('remaining').innerText ="Осталось: " + remainder + " Минут";
+                    }
+
+                    setInterval(updateProgressBar, 1000); // update progress bar every second
+
+
+                    let newsAmount = document.querySelectorAll(".newsElement").length;
+                    let newsArray = document.querySelectorAll(".newsElement")
+                    console.log(newsArray)
+                    for (let i = 0 ; i < newsAmount; i++) {
+                        newsArray[i].style.backgroundImage = "url('https://source.unsplash.com/featured/" + Math.floor(Math.random()*1000) + "x" + Math.floor(Math.random()*1000) + "')";
+                    }
+                    // let NewsCarouselVariable = document.getElementsByClassName("newsCaro").style.width = newsAmount*
+
+                        
+                       
+                                                  
+                        
+                    
+
+
+
 
                 
 
