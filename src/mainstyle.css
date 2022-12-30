@@ -260,9 +260,11 @@ width: 130px;
 }
 
 @media only screen and (max-width:555px) {
-    .elementMain {
-
-        height: 282px;
+    .messageInputId {
+        
+        margin-bottom: 30px ;
+         
+        
     }
 
 }

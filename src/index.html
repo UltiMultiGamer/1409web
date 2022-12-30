@@ -41,27 +41,27 @@
                     <!-- THIS IS THE CAROSEL -->
                 <div class="newsCaro">
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
@@ -69,15 +69,15 @@
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной загаловок с продолжением</h4>
+                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
                     
@@ -98,6 +98,14 @@
                 <p id="remaining"></p> 
                 </div>
             </div>
+        </div>
+        <div>
+            <img src=""> <p>Чат Бот</p>
+            <div class="chipscontainer">
+
+
+            </div>
+
         </div>
 
         <footer>
@@ -120,6 +128,18 @@
         </footer>
         
         <script>
+                document.querySelector('.newscaro').addEventListener('wheel', function(event) {
+                // Prevent the default behavior of the wheel event, which is to scroll the page
+                event.preventDefault();
+
+                if (event.deltaY > 0) {
+                    // scroll right
+                    this.scrollLeft += 50;
+                } else {
+                    // scroll left
+                    this.scrollLeft -= 50;
+                }
+                });
 
                 function displaySurvey() {
                     
