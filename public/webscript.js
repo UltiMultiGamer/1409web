@@ -1,9 +1,10 @@
 
 const hamburgerButton = document.querySelector('.hamburgerbutton');
 const slideoutMenu = document.querySelector('.slideout-menu');
-
+flag1=0 
 hamburgerButton.addEventListener('click', () => {
   slideoutMenu.classList.toggle('visible');
+  
 });
 
 document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
@@ -28,6 +29,8 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
     var element = document.getElementsByClassName("elementMain");
     for(let i = 0; i < element.length; i += 1) {
         element.item(i).classList.toggle("elementMainExtended");
+        // add event arg to function??
+        
         }}
 
         // navbar logic
@@ -77,8 +80,8 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
                 
                 
             }
-            console.log(currentSecond)
-            console.log("INTERVAL LOOP")
+            // console.log(currentSecond)
+            // console.log("INTERVAL LOOP")
             updateProgressBarColor('green');
             updateProgressBarWidth(percentage, currentSecond);
             updateCurrentInterval(i + 1 + " Урок"); 
@@ -91,7 +94,7 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             let remainder = Math.round((duration-timePassed)*60) 
             // console.log(remainder)
             //break in progress since this is in between a defined time interval
-            console.log("BREAK LOOP ")
+            // console.log("BREAK LOOP ")
             updateProgressBarColor('orange');
             updateProgressBarWidth(percentage, currentSecond);
             updateCurrentInterval('Перемена'); // update current interval
@@ -110,10 +113,10 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
         function updateProgressBarWidth(percentage,addPrecision) {
         // code to update progress bar width goes here
         
-        console.log("WIDTH PERCENTAGE: "+ percentage)
+        // console.log("WIDTH PERCENTAGE: "+ percentage)
         document.getElementById('lessonTimeContainer').style.setProperty('--before-width', percentage + "%");
         
-        console.log(addPrecision)
+        // console.log(addPrecision)
         }
         
 
@@ -145,10 +148,44 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             newsArray[i].style.backgroundImage = "url('https://source.unsplash.com/featured/" + Math.floor(Math.random()*1000) + "x" + Math.floor(Math.random()*1000) + "')";
         }
         // let NewsCarouselVariable = document.getElementsByClassName("newsCaro").style.width = newsAmount*
-
-            
-           
-                                      
+        
+        function preventDefault(e) {
+            e.preventDefault();
+          }
+          
+          function preventDefaultForScrollKeys(e) {
+            if (keys[e.keyCode]) {
+              preventDefault(e);
+              return false;
+            }
+          }
+          
+          // modern Chrome requires { passive: false } when adding event
+          var supportsPassive = false;
+          try {
+            window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+              get: function () { supportsPassive = true; } 
+            }));
+          } catch(e) {}
+          
+          var wheelOpt = supportsPassive ? { passive: false } : false;
+          var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+          
+          // call this to Disable
+          function disableScroll() {
+            window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+            window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+            window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+            window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+          }
+          
+          // call this to Enable
+          function enableScroll() {
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+            window.removeEventListener('touchmove', preventDefault, wheelOpt);
+            window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+          }                                 
             
         
 

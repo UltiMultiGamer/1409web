@@ -11,15 +11,14 @@ body {
     background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
     margin: 0px;
     color: white;
-    font-family: "Proxima Nova Extrabold";
-    /* border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px; */
+    font-family: "Proxima Nova";
     padding-right: 16px;
     padding-left: 16px;
-    height:250px ;
+    height: 250px ;
     transition: all 1s;
     overflow: hidden;
     padding-top: 64px;
+
     
     
 
@@ -27,6 +26,8 @@ body {
 .elementMainExtended {
     height:1000px ;
     transition: all 1s;
+    
+
 
 }
 #promptQuestion {
@@ -49,7 +50,7 @@ body {
     text-decoration: none;
     color: #9E9E9E;
     letter-spacing: 2px;
-    font-family:"Proxima Nova Extrabold"
+    font-family:"Proxima Nova Extrabold";
     
     
 }
@@ -63,7 +64,35 @@ body {
     
 
 }
+.chipscontainer {
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px;
+    box-shadow: 1px 1px 3px 1px rgba(34, 60, 80, 0.25);
+    width: fit-content;
+    display: inline-block;
+    margin: 8px;
+    margin-top: 0px;
 
+
+}
+.chipscontainer > a {
+    text-decoration: none;
+    color: black;
+    font-family: "Comfortaa";
+    font-size: 14px;
+}
+.chatbotcaption {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 16px;
+    margin-bottom: -16px
+}
+.chatbotcaption > p {
+    margin-left: 8px;
+}
 .surveyInput:focus {
     border: 0px solid black;
     outline: none;
@@ -100,12 +129,12 @@ body {
     width: 350px;
     background: white;
     z-index: 10;
-    transition: all 0.5s;
+    transition: right 0.5s;
   }
   
   .slideout-menu.visible {
     right: 0;
-    transition: all 0.5s;
+    transition: right 0.5s;
     box-shadow: -100px 100px 0px 5000px rgba(34, 60, 80, 0.4);
   }
 
@@ -138,7 +167,8 @@ rect {
 .newsCaption {
     color: #9E9E9E;
     padding: 100px;
-    font-family:"Proxima Nova Extrabold";
+    font-family:"Proxima Nova";
+    font-weight: 800;
     padding: 0px;
     font-size: 20px;
     
@@ -184,20 +214,23 @@ rect {
 
 
 #lesson {
-    font-family:"Proxima Nova Extrabold";
+    font-family:"Proxima Nova";
+    font-weight: 800;
     color: #9E9E9E;
     font-size: 28px;
     margin: 0px;
 }
 #sched {
-    font-family:"Proxima Nova Extrabold";
+    font-family:"Proxima Nova";
+    font-weight: 800;
     color: #9E9E9E;
     margin: 2px;
     
 
 }
 #remaining {
-    font-family:"Proxima Nova Extrabold";
+    font-family:"Proxima Nova";
+    font-weight: 800;
     color: #9E9E9E;
 
 }
@@ -287,7 +320,7 @@ width: 130px;
   }
   footer {
     background-color: #EFEFEF;
-    margin-top: 300px;
+    margin-top: 100px;
     height: 15  0px;
     flex: auto;
     justify-content: space-between;

@@ -50,8 +50,16 @@ layout: 'base.njk'
         <div class="elementMain">
             
             <h3 id="promptQuestion">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
-            
-            <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="changeClass()">
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                  <h2>Popup Window</h2>
+                  <p>This is a full-screen popup window.</p>
+                  
+                  <button onclick="Popup()">Отмена</button>
+                  <button onclick="sendEmail()">Послать</button>
+                </div>
+              </div>
+            <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="Popup()">
 
             
         </div>
