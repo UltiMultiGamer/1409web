@@ -7,6 +7,19 @@ hamburgerButton.addEventListener('click', () => {
   
 });
 
+
+const textInput = document.querySelector(".textInput");
+const label = document.querySelector(".textInput + label");
+
+textInput.addEventListener("input", function() {
+    if (this.value.length > 0) {
+        label.classList.add("has-text");
+    } else {
+        label.classList.remove("has-text");
+    }
+});
+
+
 document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
     // Prevent the default behavior of the wheel event, which is to scroll the page
     event.preventDefault();
@@ -20,33 +33,32 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
     }
     });
 
-    function displaySurvey() {
+
+    function textAreaAdjust(element) {
+        element.style.height = '0';
+        element.style.height = element.scrollHeight + 'px';
+
+    }
+
         
-
-    }
-
-    function Popup() {
-      var popup = document.getElementById("popup");
-  
-      if (popup.style.display === "none") {
-        popup.style.display = "block";
-        popup.style.opacity = 100
-      } else {
-        popup.style.opacity = 0
-        popup.style.display = "none";
-      }
-    }
-
-
 
         // survey open logic
-    function changeClass() { 
+    function addClass() { 
+    var iWillKMS = document.getElementById("message")
     var element = document.getElementsByClassName("elementMain");
     for(let i = 0; i < element.length; i += 1) {
-        element.item(i).classList.toggle("elementMainExtended");
-        
+        element.item(i).classList.add("elementMainExtended");
+        iWillKMS.style.height = '40vh';
         
         }}
+        function removeClass() { 
+            var iWillKMS = document.getElementById("message")
+            var element = document.getElementsByClassName("elementMain");
+            for(let i = 0; i < element.length; i += 1) {
+                element.item(i).classList.remove("elementMainExtended");
+                iWillKMS.style.height = '60px';
+                
+                }}
 
         // navbar logic
         var buttons = document.querySelectorAll("button");
@@ -75,7 +87,7 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
         var currentHour = currentTime.getHours();
         var currentMinute = currentTime.getMinutes();
         var currentTimeInHours = currentHour + currentMinute / 60;
-       
+        
         console.log(currentTimeInHours)
 
         for (let i = 0; i < startTimes.length; i++) {
@@ -95,10 +107,9 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
                 
                 
             }
-            // console.log(currentSecond)
-            // console.log("INTERVAL LOOP")
+            
             updateProgressBarColor('green');
-            updateProgressBarWidth(percentage, currentSecond);
+            updateProgressBarWidth(percentage,currentSecond,duration);
             updateCurrentInterval(i + 1 + " Урок"); 
             updateRemained(remainder)
             return;
@@ -111,7 +122,7 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             //break in progress since this is in between a defined time interval
             // console.log("BREAK LOOP ")
             updateProgressBarColor('orange');
-            updateProgressBarWidth(percentage, currentSecond);
+            updateProgressBarWidth(percentage,currentSecond,duration);
             updateCurrentInterval('Перемена'); // update current interval
             updateRemained(remainder)
             return;
@@ -125,14 +136,14 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
         document.getElementById('lessonTimeContainer').style.setProperty('--before-background-color', color);
         }
 
-        function updateProgressBarWidth(percentage,addPrecision) {
+        function updateProgressBarWidth(percentage,seconds,dura) {
         // code to update progress bar width goes here
-        
-        // console.log("WIDTH PERCENTAGE: "+ percentage)
+       
         document.getElementById('lessonTimeContainer').style.setProperty('--before-width', percentage + "%");
         
-        // console.log(addPrecision)
+        
         }
+        
         
 
         function updateCurrentInterval(interval) {
@@ -159,11 +170,11 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
         let newsAmount = document.querySelectorAll(".newsElement").length;
         let newsArray = document.querySelectorAll(".newsElement")
         console.log(newsArray)
-        for (let i = 0 ; i < newsAmount; i++) {
-            newsArray[i].style.backgroundImage = "url('https://source.unsplash.com/featured/" + Math.floor(Math.random()*1000) + "x" + Math.floor(Math.random()*1000) + "')";
-        }
+        // for (let i = 0 ; i < newsAmount; i++) {
+        //     newsArray[i].style.backgroundImage = "url('https://source.unsplash.com/featured/" + Math.floor(Math.random()*1000) + "x" + Math.floor(Math.random()*1000) + "')";
+        // }
         // let NewsCarouselVariable = document.getElementsByClassName("newsCaro").style.width = newsAmount*
-        
+        var keys = {37: 1, 38: 1, 39: 1, 40: 1};
         function preventDefault(e) {
             e.preventDefault();
           }
@@ -200,8 +211,23 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
             window.removeEventListener('touchmove', preventDefault, wheelOpt);
             window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-          }                                 
-            
+          }                
+          
+          
+          function decimalToTime(decimal) {
+            let hour = Math.floor(decimal);
+            let minute = Math.round((decimal % 1) * 60);
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+            return hour + ":" + minute;
+        }
+
+
+        
         
 
 

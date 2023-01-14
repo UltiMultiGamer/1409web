@@ -3,7 +3,7 @@ body {
     margin: 0px;
     background-color:white;
     font-family: "Proxima Nova";
-    
+    scroll-behavior: smooth;
 }
 
 .elementMain {
@@ -12,24 +12,59 @@ body {
     margin: 0px;
     color: white;
     font-family: "Proxima Nova";
+    /* border-bottom-left-radius:20px ;
+    border-bottom-right-radius: 20px; */
     padding-right: 16px;
     padding-left: 16px;
-    height: 250px ;
+    height: 220px ;
     transition: all 1s;
     overflow: hidden;
-    padding-top: 64px;
+    padding-top: 32px;
+    position: relative;
 
     
     
 
 }
 .elementMainExtended {
-    height:1000px ;
+    height:100vh ;
     transition: all 1s;
-    
+    position: relative;
 
 
 }
+
+@media only screen and (max-width:555px) {
+    .elementMain {
+        background: rgb(86,136,216);
+        background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
+        margin: 0px;
+        color: white;
+        font-family: "Proxima Nova";
+        /* border-bottom-left-radius:20px ;
+        border-bottom-right-radius: 20px; */
+        padding-right: 16px;
+        padding-left: 16px;
+        height: 260px ;
+        transition: all 1s;
+        overflow: hidden;
+        padding-top: 32px;
+        position: relative;
+    
+        
+        
+    
+    }
+    .elementMainExtended {
+        height:100vh ;
+        transition: all 1s;
+        position: relative;
+    
+    
+    }
+
+}
+
 #promptQuestion {
     font-size: 32px;
 }
@@ -54,7 +89,10 @@ body {
     
     
 }
-.surveyInput {
+.formField {
+    position: relative;
+}
+/* .surveyInput {
     border-radius: 10px;
     border: 0px solid black;
     height: 60px;
@@ -62,8 +100,87 @@ body {
     font-size: 20px;
     margin-bottom: 32px;
     
+    
+} */
+.surveyButton {
+    width: 200px;
+    height: 55px;
+    background-color: white;
+    color: rgba(138,75,211,1);
+    border-radius: 15px;
+    border: 0px solid;
+    outline: none;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: "Proxima Nova";
+    transition: all 0.2s;
+    
+}
+.surveyButton:hover {
+    scale: 1.05;
+    transition: 0.2s all;
+    outline:rgba(86,136,216,1) 3px solid;
+}
+.buttoncontainer {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    gap: 12px;
+}
+.textInput {
+    border-radius: 10px;
+    border: 0px solid black;
+    height: 60px;
+    width: calc(100%);
+    font-size: 20px;
+    margin-bottom: 32px;
+    resize: none;
+    font-family: "Proxima Nova";
+    transition: all 1s;
+    overflow-y: hidden;
+    
+}
+
+.textInput:focus {
+    border: 0px solid black;
+    outline: none;
 
 }
+.textInput + label {
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    transition: 0.2s all;
+    font-size: large;
+    color: rgba(138,75,211,1);
+    font-weight: 500;
+}
+.textInput:focus + label {
+    font-size: smaller;
+    top: -20px;
+    transition: 0.2s all;
+    color: white;
+
+}
+
+.textInput:not(:placeholder-shown) + label {
+    font-size: smaller;
+    top: -20px;
+    transition: 0.2s all;
+    color: white;
+}
+
+.textInput + label.has-text {
+    font-size: smaller;
+    top: -20px;
+    transition: 0.2s all;
+}
+
+
+label {
+    color: black;
+}
+
 .chipscontainer {
     padding: 8px;
     border-radius: 15px;
@@ -93,16 +210,13 @@ body {
 .chatbotcaption > p {
     margin-left: 8px;
 }
+
 .surveyInput:focus {
     border: 0px solid black;
     outline: none;
 }
 
-.surveyInput::placeholder {
 
-    font-size: 20px;
-    font-family: "Comfortaa";
-}
 .navbarCont {
     display: flex;
     justify-content: space-between;
@@ -112,7 +226,7 @@ body {
     width: 100%;
     /* border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px; */
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); */
     z-index: 9;
     height: 54.4px;
 
@@ -121,35 +235,17 @@ body {
     width: 52px;
     height: 54px;
 }
-/* Style for the full-screen popup window */
-.popup {
-    display: none;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f1f1f1;
-    overflow: auto;
-    transition: all;
-  }
 
-  #popupButton {
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-  }
+
+
 
 
 .slideout-menu {
     position: fixed;
     top: 0;
-    right: -350px;
+    right: -300px;
     bottom: 0;
-    width: 350px;
+    width: 300px;
     background: white;
     z-index: 10;
     transition: right 0.5s;
@@ -182,18 +278,19 @@ rect {
     background-color: white;
 }
 .newsSection {
-    margin-top: 16px;
+    
     padding-right: 16px;
     padding-left: 16px;
 }
 
 .newsCaption {
     color: #9E9E9E;
-    padding: 100px;
     font-family:"Proxima Nova";
     font-weight: 800;
-    padding: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
+    margin: 0px;
     
 }
 /* SLIDER CSS SHIT */
@@ -235,13 +332,16 @@ rect {
 /* NAVBAR ANIMATION SHIT END */
 
 
-
+.secondContent {
+    
+}
 #lesson {
     font-family:"Proxima Nova";
     font-weight: 800;
     color: #9E9E9E;
     font-size: 28px;
     margin: 0px;
+    mix-blend-mode: multiply;
 }
 #sched {
     font-family:"Proxima Nova";
@@ -271,18 +371,20 @@ rect {
     margin-top: 32px;
     border-radius: 16px;
     height: 56px;
+    overflow: hidden;
+    position: relative;
 }
 #lessonTimeContainer::before {
     
     
-    
+    overflow: hidden;
     content: " ";
     position: absolute;
     margin-left: -8px;
     height: 56px;
     width: calc(var(--before-width) - 48px);
     background-color: inherit;
-    background-color: rgb(118, 228, 118);
+    background-color:  rgba(138,75,211,0.75);
     border-radius: 16px;
     padding: 8px;
     z-index: -9;
@@ -305,6 +407,11 @@ width: 130px;
   
 
 
+}
+
+.newsElement:hover {
+    scale: 1.05;
+    transition: 0.2s all;
 }
 .newsCaro {
     overflow-x: scroll;
@@ -361,12 +468,4 @@ width: 130px;
     padding: 10px;
 }
 
-@media only screen and (max-width:555px) {
-    .messageInputId {
-        
-        margin-bottom: 30px ;
-         
-        
-    }
 
-}

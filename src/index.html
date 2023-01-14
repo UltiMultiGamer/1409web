@@ -1,8 +1,3 @@
-{# ---
-title: NateHiggers
-layout: 'base.njk'
---- #}
-{# this is the data that will be put into the format, format is read from the layout thing #}
 
 
 <html>
@@ -26,20 +21,11 @@ layout: 'base.njk'
             <hr>
             <a href="#">Link 3</a>           
         </div>
-        <div class="navbarCont">
-        <div class="elementMainExtended" style="display:none ;"></div>
-        
-                
+        <div class="navbarCont" style="display:none ;">
+        <div class="elementMainExtended" style="display:none ;"></div>       
             <h4 class="titleText"><a href="index.html">ВМоменте</a></h4>  
-                <div class="fakeDiv"></div>
-                
-            
-
-            
-             
-        
         </div>
-        <button class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation" style="display:none ;">
                 <svg class="hamburger" viewBox = "0 0 100 100" width="40" height="50">
                     <rect class="line first" x="10" y="25px" width="80" height="10" rx="5" fill="#9E9E9E"></rect>
                     <rect class="line second" x="10" y="45px" width="80" height="10" rx="5" fill="#9E9E9E"></rect>
@@ -50,17 +36,38 @@ layout: 'base.njk'
         <div class="elementMain">
             
             <h3 id="promptQuestion">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
-            <div id="popup" class="popup">
-                <div class="popup-content">
-                  <h2>Popup Window</h2>
-                  <p>This is a full-screen popup window.</p>
-                  
-                  <button onclick="Popup()">Отмена</button>
-                  <button onclick="sendEmail()">Послать</button>
-                </div>
-              </div>
-            <input id="messageInputId" type="text" class="surveyInput" placeholder="Ваше сообщение" autocomplete="off" onclick="Popup()">
 
+
+            <form>
+                <div class="formField">
+                    
+                    <textarea onkeyup="textAreaAdjust(this)"  class="textInput" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
+                    <label for="message">Сообщение</label>
+                    
+                </div>
+                <div class="formField">
+                    
+                    <input class="textInput" type="text" id="email" placeholder=" ">
+                    <label for="email">Е-Mail</label>
+                    
+                </div>
+                <div class="buttoncontainer">
+                <button class="surveyButton" onclick="removeClass()" type="button">
+                    Отправить! ✉️
+                </button>
+                <button class="surveyButton" onclick="removeClass()" type="button">
+                    Отменить ❌
+                </button>
+                </div>
+
+            </form>
+            <!-- <div>
+                <span class="inputLabel">Label</span>
+            <input id="messageInputId" type="text" class="surveyInput" autocomplete="off" onclick="changeClass()">
+            
+            </div> -->
+           
+              
             
         </div>
         <div class="secondContent">
@@ -68,66 +75,14 @@ layout: 'base.njk'
             <p class="newsCaption">Последние события:</p>
                     <!-- THIS IS THE CAROSEL -->
                 <div class="newsCaro">
+                    <a href="google.com">
                     <div class="newsElement">
+                    
                         <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
                         <p class="newsSubLabel">01/03</p>
                     </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
-                    <div class="newsElement">
-                        <h4 class="newsLabel">Длинный новостной заголовок с продолжением</h4>
-                        <p class="newsSubLabel">01/03</p>
-                    </div>
+                    </a>
+                    
                     
                     
                     
