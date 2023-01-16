@@ -381,15 +381,16 @@ rect {
     content: " ";
     position: absolute;
     margin-left: -8px;
-    height: 56px;
+    height: 1px;
     width: calc(var(--before-width) - 48px);
     background-color: inherit;
     background-color: rgba(138,75,211,0.75);
     border-radius: 16px;
-    padding: 8px;
+    padding:2px;
     z-index: -9;
     /* the width of the element will be defined by both the padding and the width */
     transition: all 1s;
+    bottom: 0;
     
 
 }
