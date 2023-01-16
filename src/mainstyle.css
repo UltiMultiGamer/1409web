@@ -384,7 +384,7 @@ rect {
     height: 56px;
     width: calc(var(--before-width) - 48px);
     background-color: inherit;
-    background-color:  rgba(138,75,211,0.75);
+    background-color: rgba(138,75,211,0.75);
     border-radius: 16px;
     padding: 8px;
     z-index: -9;
