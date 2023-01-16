@@ -386,7 +386,7 @@ rect {
     background-color: inherit;
     background-color: rgba(138,75,211,0.75);
     border-radius: 16px;
-    padding:2px;
+    padding: 2px;
     z-index: -9;
     /* the width of the element will be defined by both the padding and the width */
     transition: all 1s;
