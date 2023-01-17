@@ -40,7 +40,6 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
 
     }
 
-        
 
         // survey open logic
     function addClass() { 

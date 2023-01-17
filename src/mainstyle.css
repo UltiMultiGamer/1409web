@@ -1,9 +1,14 @@
-
+html, body {
+    overflow-x: hidden;
+}
 body {
     margin: 0px;
     background-color:white;
     font-family: "Proxima Nova";
     scroll-behavior: smooth;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .elementMain {
@@ -12,14 +17,13 @@ body {
     margin: 0px;
     color: white;
     font-family: "Proxima Nova";
-    /* border-bottom-left-radius:20px ;
-    border-bottom-right-radius: 20px; */
+    border-radius: 20px;
     padding-right: 16px;
     padding-left: 16px;
     height: 220px ;
     transition: all 1s;
     overflow: hidden;
-    padding-top: 32px;
+    padding-top: 16px;
     position: relative;
 
     
@@ -35,20 +39,29 @@ body {
 }
 
 @media only screen and (max-width:555px) {
+
+    body {
+        margin: 0px;
+        background-color:white;
+        font-family: "Proxima Nova";
+        scroll-behavior: smooth;
+        position: relative;
+        padding-left: 10px;
+        padding-right: 10px; 
+    }
     .elementMain {
         background: rgb(86,136,216);
         background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
         margin: 0px;
         color: white;
         font-family: "Proxima Nova";
-        /* border-bottom-left-radius:20px ;
-        border-bottom-right-radius: 20px; */
+        border-radius: 20px;
         padding-right: 16px;
         padding-left: 16px;
         height: 260px ;
         transition: all 1s;
         overflow: hidden;
-        padding-top: 32px;
+        padding-top: 16px;
         position: relative;
     
         
@@ -62,7 +75,9 @@ body {
     
     
     }
-
+    #promptQuestion {
+        font-size: 5vw;
+    }
 }
 
 #promptQuestion {
@@ -91,17 +106,9 @@ body {
 }
 .formField {
     position: relative;
+    
 }
-/* .surveyInput {
-    border-radius: 10px;
-    border: 0px solid black;
-    height: 60px;
-    width: calc(100%);
-    font-size: 20px;
-    margin-bottom: 32px;
-    
-    
-} */
+
 .surveyButton {
     width: 200px;
     height: 55px;
@@ -308,9 +315,9 @@ rect {
     cursor: pointer;
     z-index: 15;
     transform: translateZ(20px);
-    top: 0;
-    right: 0px;
-    position: fixed
+    left: 200000px;
+    /* position: fixed; */
+    position: sticky
     ;
     
 
@@ -395,7 +402,6 @@ rect {
 
 }
 .newsElement {
-width: 130px;
   height: 200px;
   background-color: black;
   color: white;
@@ -405,13 +411,17 @@ width: 130px;
   border-radius: 16px;
   background-color: black;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-  
+  background-image: url(placeholder.jpg);
+  width: 130px;
+  background-size: contain;
+  position: relative;
+  transition: 0.2s all;
 
 
 }
 
 .newsElement:hover {
-    scale: 1.05;
+    filter: brightness(0.8);
     transition: 0.2s all;
 }
 .newsCaro {
@@ -423,6 +433,11 @@ width: 130px;
 
 
 }
+.newsCaro a {
+    filter: opacity(1);
+    text-decoration: none;
+}
+
 .newsLabel {
     margin-top: 130px;
     text-align: left;
@@ -437,12 +452,14 @@ width: 130px;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     white-space: normal;
+    position: absolute;
     }
 .newsSubLabel {
     font-size: 12px;
     text-align: left;
-    margin-top: 2px;
+    margin-top: 175px;
     margin-left: 10px;
+
 
 }
 
@@ -458,6 +475,8 @@ width: 130px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 .footerText {
     padding: 20px;
