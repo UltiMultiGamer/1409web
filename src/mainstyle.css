@@ -1,3 +1,8 @@
+:root {
+    --main-color: rgb(86,136,216);
+    --secondary-color: rgba(138,75,211,1)
+}
+
 html, body {
     overflow-x: hidden;
 }
@@ -10,10 +15,22 @@ body {
     padding-left: 30px;
     padding-right: 30px;
 }
+body > * {
+    font-family: "Proxima Nova";
+}
+.logo {
 
+ background-image: url(hui.jpg);
+ background-size: contain;
+ height: 52px;
+ width: 52px;
+ margin: 0px ;
+ 
+
+}
 .elementMain {
-    background: rgb(86,136,216);
-    background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
+    background: var(--main-color);
+    background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
     margin: 0px;
     color: white;
     font-family: "Proxima Nova";
@@ -37,8 +54,14 @@ body {
 
 
 }
-
-@media only screen and (max-width:555px) {
+.navbarCont {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 65px;
+}
+@media only screen and (max-width:617px) {
 
     body {
         margin: 0px;
@@ -72,16 +95,19 @@ body {
         height:100vh ;
         transition: all 1s;
         position: relative;
+    }
     
     
-    }
-    #promptQuestion {
-        font-size: 5vw;
-    }
+}
+@media only screen and (max-width:353px) {
+
+
+
 }
 
 #promptQuestion {
     font-size: 32px;
+    
 }
 
 .titleText {
@@ -224,20 +250,7 @@ label {
 }
 
 
-.navbarCont {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /* border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px; */
-    /* box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); */
-    z-index: 9;
-    height: 54.4px;
 
-}
 .fakeDiv {
     width: 52px;
     height: 54px;
@@ -315,9 +328,10 @@ rect {
     cursor: pointer;
     z-index: 15;
     transform: translateZ(20px);
-    left: 200000px;
+    height: 52px
+    
     /* position: fixed; */
-    position: sticky
+    
     ;
     
 
@@ -346,7 +360,7 @@ rect {
     font-family:"Proxima Nova";
     font-weight: 800;
     color: #9E9E9E;
-    font-size: 28px;
+    font-size: 32px;
     margin: 0px;
     mix-blend-mode: multiply;
 }
