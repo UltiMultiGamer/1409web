@@ -17,22 +17,16 @@
         <div class="navbarCont"style="left: 200px;">
         <a href="index.html" style="height: 52px;"><div class="logo"></div></a>
 
-        <button class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation" >
+        <button id="hamburgerbutton" class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation" onclick="dropNav()">
             <svg class="hamburger" viewBox = "0 0 100 100" width="40" height="50">
-                <rect class="line first" x="10" y="25px" width="80" height="10" rx="5" fill="rgb(86,136,216)"></rect>
-                <rect class="line second" x="10" y="45px" width="80" height="10" rx="5" fill="rgb(86,136,216)"></rect>
-                <rect class="line third" x="10" y="65px" width="80" height="10" rx="5" fill="rgb(86,136,216)"></rect>
+                <rect class="line first" x="10" y="25px" width="80" height="10" rx="5" fill="#6d6dd6"></rect>
+                <rect class="line second" x="10" y="45px" width="80" height="10" rx="5" fill="#6d6dd6"></rect>
+                <rect class="line third" x="10" y="65px" width="80" height="10" rx="5" fill="#6d6dd6"></rect>
 
             </svg> 
         </button>
     </div>
-        <div class="slideout-menu">
-            <a href="#">Link 1</a>
-            <hr>
-            <a href="#">Link 2</a>
-            <hr>
-            <a href="#">Link 3</a>           
-        </div>
+       <div id="navDrop" style="display:none;">my name is gustavo fring</div>
        
         <div class="elementMainExtended" style="display:none ;"></div>       
 
@@ -195,7 +189,7 @@
 
         <footer>
             <div class="footerText">
-                <h1>В_Моменте_</h1>
+                <h1></h1>
                 <a>О Нас</a>
                 <br>
                 <a>Техническая поддержка</a>
@@ -206,10 +200,10 @@
 
 
 
-            <div class="footerSocials">
+            
                 <a href=""><img src="telegram.png"></a>
                 <a href=""><img src="VK.png"></a>
-            </div>
+           
         </footer>
         <script src="webscript.js">
                 

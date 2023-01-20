@@ -14,6 +14,7 @@ body {
     position: relative;
     padding-left: 30px;
     padding-right: 30px;
+    transition: 0.2s all;
 }
 body > * {
     font-family: "Proxima Nova";
@@ -28,6 +29,7 @@ body > * {
  
 
 }
+
 .elementMain {
     background: var(--main-color);
     background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
@@ -61,49 +63,7 @@ body > * {
     align-items: center;
     height: 65px;
 }
-@media only screen and (max-width:617px) {
 
-    body {
-        margin: 0px;
-        background-color:white;
-        font-family: "Proxima Nova";
-        scroll-behavior: smooth;
-        position: relative;
-        padding-left: 10px;
-        padding-right: 10px; 
-    }
-    .elementMain {
-        background: rgb(86,136,216);
-        background: linear-gradient(180deg, rgba(86,136,216,1) 0%, rgba(138,75,211,1) 100%);
-        margin: 0px;
-        color: white;
-        font-family: "Proxima Nova";
-        border-radius: 20px;
-        padding-right: 16px;
-        padding-left: 16px;
-        height: 260px ;
-        transition: all 1s;
-        overflow: hidden;
-        padding-top: 16px;
-        position: relative;
-    
-        
-        
-    
-    }
-    .elementMainExtended {
-        height:100vh ;
-        transition: all 1s;
-        position: relative;
-    }
-    
-    
-}
-@media only screen and (max-width:353px) {
-
-
-
-}
 
 #promptQuestion {
     font-size: 32px;
@@ -212,6 +172,7 @@ body > * {
 
 label {
     color: black;
+    font-family: "Proxima Nova";
 }
 
 .chipscontainer {
@@ -483,7 +444,7 @@ rect {
   footer {
     background-color: #EFEFEF;
     margin-top: 100px;
-    height: 15  0px;
+    height: 150px;
     flex: auto;
     justify-content: space-between;
     display: flex;
@@ -491,15 +452,73 @@ rect {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px;
   }
-.footerText {
-    padding: 20px;
+footer img {
+    padding: 5px;
 }
-.footerSocials {
-    padding: 20px;
-}
-.footerSocials > * {
+
+#navDrop {
+    
+    position: absolute;
+    background-color: #eee;
     padding: 10px;
+    left: 20000px;
+    z-index: 999;
+  }
+
+
+
+@media only screen and (max-width:617px) {
+
+    body {
+        margin: 0px;
+        background-color:white;
+        font-family: "Proxima Nova";
+        scroll-behavior: smooth;
+        position: relative;
+        padding-left: 10px;
+        padding-right: 10px; 
+        transition: 0.2s all;
+    }
+    
+    #lesson {
+        font-size: 30px ;
+        transition: 0.2s all;
+    }
+    #promptQuestion {
+        font-size: 30px;
+        height: 78px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        transition: 0.2s all;
+    }
+    
+    
 }
+@media only screen and (max-width:543px) {
+    #promptQuestion {
+        font-size: 28px;
+        height: 78px;
+    }
+    #lesson {
+        font-size: 26px ;
+        transition: 0.2s all;
+    }
 
 
+
+}
+@media only screen and (max-width:316px) {
+    
+    #lesson {
+        font-size: 26px ;
+        transition: 0.2s all;
+    }
+    #promptQuestion {
+        font-size: 23px;
+        height: 78px;
+    }
+
+}

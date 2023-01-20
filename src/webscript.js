@@ -1,11 +1,38 @@
+addEventListener("resize", (event) => {
+    
+    var rectangle = document.getElementById("navDrop");
+    var button = document.getElementById("hamburgerbutton");
+    
 
-const hamburgerButton = document.querySelector('.hamburgerbutton');
-const slideoutMenu = document.querySelector('.slideout-menu');
-flag1=0 
-hamburgerButton.addEventListener('click', () => {
-  slideoutMenu.classList.toggle('visible');
-  
+    if (rectangle.style.display == "none") {
+        
+    }else {
+        rectangle.style.top = button.offsetTop + button.offsetHeight + 10 + "px";
+        rectangle.style.left = button.offsetLeft + "px"; 
+    }
+     
+    
+    
+
 });
+
+
+function dropNav(){
+    var rectangle = document.getElementById("navDrop");
+    var button = document.getElementById("hamburgerbutton");
+   
+    if (rectangle.style.display == "none") {
+        rectangle.style.display = "block";
+        rectangle.style.top = button.offsetTop + button.offsetHeight + 10 + "px";
+        rectangle.style.left = button.offsetLeft + "px";
+        console.log("hi")
+    } else {
+        rectangle.style.display = "none";
+        rectangle.style.top = button.offsetTop + button.offsetHeight + 10 + "px";
+        rectangle.style.left = 20000 + "px";
+        console.log("ih")
+    }
+  };
 
 
 const textInput = document.querySelector(".textInput");
