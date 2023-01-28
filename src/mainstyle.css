@@ -446,7 +446,7 @@ rect {
   footer {
     background-color: #EFEFEF;
     margin-top: 100px;
-    height: 200px;
+    height: 100px;
     padding-left: 20px;
     padding-right: 20px;
     border-top-left-radius: 20px ;
@@ -468,14 +468,24 @@ rect {
     text-decoration: none;
     color: black;
     word-wrap: normal;
-    font-size: 15px;
+    font-size: 10px;
     white-space: nowrap;
     
     
 }
 .legal {
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EFEFEF;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+/* .legal  {
+    padding-right: 20px;
+    padding-left: 20px;
+} */
 #navDrop {
     position: absolute;
     background-color: white;
