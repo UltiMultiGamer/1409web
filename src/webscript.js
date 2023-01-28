@@ -1,38 +1,3 @@
-addEventListener("resize", (event) => {
-    
-    var rectangle = document.getElementById("navDrop");
-    var button = document.getElementById("hamburgerbutton");
-    
-
-    if (rectangle.style.display == "none") {
-        
-    }else {
-        rectangle.style.top = button.offsetTop + button.offsetHeight + 10 + "px";
-        rectangle.style.left = button.offsetLeft + "px"; 
-    }
-     
-    
-    
-
-});
-
-
-function dropNav(){
-    var rectangle = document.getElementById("navDrop");
-    var button = document.getElementById("hamburgerbutton");
-   
-    if (rectangle.style.display == "none") {
-        rectangle.style.display = "block";
-        rectangle.style.top = button.offsetTop + button.offsetHeight + 10 + "px";
-        rectangle.style.left = button.offsetLeft + "px";
-        console.log("hi")
-    } else {
-        rectangle.style.display = "none";
-        rectangle.style.top = button.offsetTop + button.offsetHeight + 10 + "px";
-        rectangle.style.left = 20000 + "px";
-        console.log("ih")
-    }
-  };
 
 
 const textInput = document.querySelector(".textInput");
@@ -153,18 +118,15 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             updateRemained(remainder)
             return;
              }// else if (currentTimeInHours >= 0 && currentTimeInHours <= 8.5) 
-           
         }
         }
-
         function updateProgressBarColor(color) {
         // code to update progress bar color goes here
         document.getElementById('lessonTimeContainer').style.setProperty('--before-background-color', color);
         }
-
         function updateProgressBarWidth(percentage,seconds,dura) {
         // code to update progress bar width goes here
-       
+
         document.getElementById('lessonTimeContainer').style.setProperty('--before-width', percentage + "%");
         
         
@@ -204,14 +166,12 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
         function preventDefault(e) {
             e.preventDefault();
           }
-          
           function preventDefaultForScrollKeys(e) {
             if (keys[e.keyCode]) {
               preventDefault(e);
               return false;
             }
           }
-          
           // modern Chrome requires { passive: false } when adding event
           var supportsPassive = false;
           try {
@@ -219,10 +179,8 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
               get: function () { supportsPassive = true; } 
             }));
           } catch(e) {}
-          
           var wheelOpt = supportsPassive ? { passive: false } : false;
           var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
-          
           // call this to Disable
           function disableScroll() {
             window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
@@ -230,7 +188,6 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
             window.addEventListener('keydown', preventDefaultForScrollKeys, false);
           }
-          
           // call this to Enable
           function enableScroll() {
             window.removeEventListener('DOMMouseScroll', preventDefault, false);
@@ -238,8 +195,6 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             window.removeEventListener('touchmove', preventDefault, wheelOpt);
             window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
           }                
-          
-          
           function decimalToTime(decimal) {
             let hour = Math.floor(decimal);
             let minute = Math.round((decimal % 1) * 60);
@@ -251,16 +206,17 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
             }
             return hour + ":" + minute;
         }
-
-
-        
         
 
-
-
-
-    
-
-    
-
-   
+        var menuButton = document.getElementById("hamburgerbutton");
+        var navMenu = document.getElementById("nav-menu");
+        menuButton.addEventListener("click", function() {
+        navMenu.classList.toggle("show");});
+            navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
+            navMenu.style.left = menuButton.offsetLeft - 30 + "px"; 
+            
+        addEventListener("resize", (event) => {
+            
+            navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
+            navMenu.style.left = menuButton.offsetLeft - 30 + "px"; 
+        });

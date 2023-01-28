@@ -5,6 +5,7 @@
 
 html, body {
     overflow-x: hidden;
+    
 }
 body {
     margin: 0px;
@@ -21,7 +22,7 @@ body > * {
 }
 .logo {
 
- background-image: url(hui.jpg);
+ background-image: url(hui.png);
  background-size: contain;
  height: 52px;
  width: 52px;
@@ -110,9 +111,10 @@ body > * {
     
 }
 .surveyButton:hover {
-    scale: 1.05;
+    filter: brightness(0.8);
     transition: 0.2s all;
-    outline:rgba(86,136,216,1) 3px solid;
+
+    
 }
 .buttoncontainer {
     display: flex;
@@ -186,12 +188,52 @@ label {
     margin-top: 0px;
 
 
+    /* effects */
+    position: relative;
+    background-image: linear-gradient();
+    z-index: 1;
+    transition: 0.2s all;
+    background: linear-gradient(180deg, white 0%, white 0%);
+    
+
+
 }
 .chipscontainer > a {
     text-decoration: none;
     color: black;
     font-family: "Comfortaa";
     font-size: 14px;
+    transition: 0.2s all;
+    
+}
+
+.chipscontainer::before {
+    position: absolute;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px;
+    box-shadow: 1px 1px 3px 1px rgba(34, 60, 80, 0.25);
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      to left,
+      var(--main-color),
+      var(--secondary-color)
+    );
+    z-index: -1;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+
+}
+.chipscontainer:hover::before {
+    transition: 0.2s all;
+    opacity: 1;
+}
+.chipscontainer:hover a {
+    transition: 0.2s all;
+    color: white;
 }
 .chatbotcaption {
     display: flex;
@@ -217,44 +259,6 @@ label {
     height: 54px;
 }
 
-
-
-
-
-.slideout-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    bottom: 0;
-    width: 300px;
-    background: white;
-    z-index: 10;
-    transition: right 0.5s;
-  }
-  
-  .slideout-menu.visible {
-    right: 0;
-    transition: right 0.5s;
-    box-shadow: -100px 100px 0px 5000px rgba(34, 60, 80, 0.4);
-  }
-
-  
-
-  .slideout-menu a {
-    display: inline-block;
-    padding: 10px;
-    color: black;
-    text-decoration: none;
-  }
-  
-  /* Style the horizontal lines in the navbar */
-  .slideout-menu hr {
-    border: 0;
-    height: 1px;
-    background: grey;
-    margin: 10px 0;
-  }
-   
 rect {
     background-color: white;
 }
@@ -314,9 +318,7 @@ rect {
 /* NAVBAR ANIMATION SHIT END */
 
 
-.secondContent {
-    
-}
+
 #lesson {
     font-family:"Proxima Nova";
     font-weight: 800;
@@ -444,32 +446,102 @@ rect {
   footer {
     background-color: #EFEFEF;
     margin-top: 100px;
-    height: 150px;
-    flex: auto;
-    justify-content: space-between;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    height: 200px;
     padding-left: 20px;
     padding-right: 20px;
     border-top-left-radius: 20px ;
     border-top-right-radius: 20px;
-  }
-footer img {
-    padding: 5px;
-}
-
-#navDrop {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
     
-    position: absolute;
-    background-color: #eee;
-    padding: 10px;
-    left: 20000px;
-    z-index: 999;
+    
   }
+.footertext {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    margin-right: 50px;
+    
+}
+.footertext a {
+    text-decoration: none;
+    color: black;
+    word-wrap: normal;
+    font-size: 15px;
+    white-space: nowrap;
+    
+    
+}
+.legal {
+    
+}
+#navDrop {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    z-index: 999;
+    width: 100px;
+  }
+  @keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        visibility: hidden;
+    }
+    to   { 
+        opacity: 1;
+        visibility: visible;
+    
+    }
+  }
+  
+  @keyframes fadeOut {
+    from { 
+        opacity: 1;
+        visibility: visible;
+    }
+    to   { 
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+  
+  .nav-menu {
+    visibility: hidden;
+    position:absolute;
+    opacity: 0;
+    animation: fadeOut 0.5s forwards;
+    z-index: 100;
+    background-color: white;
+    padding-left: 0px;
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    text-align: center;
+    width: 100px;
+    height: 300px;
+    
+    
+  }
+  .nav-menu > a {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    padding: inherit;
+    
+  }
+  .nav-menu.show {
+    visibility: visible;
+    position: absolute;
+    opacity: 1;
+    animation: fadeIn 0.5s forwards;
+    z-index: 100;
+  }
+ 
 
-
-
+/* //////////////// */
+/* MEDIA QUERIES   */
+/* //////////////// */
 @media only screen and (max-width:617px) {
 
     body {
@@ -501,12 +573,35 @@ footer img {
     #promptQuestion {
         font-size: 28px;
         height: 78px;
+        margin-bottom: 47px;
     }
     #lesson {
         font-size: 26px ;
         transition: 0.2s all;
     }
-
+    .elementMain {
+        background: var(--main-color);
+    background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
+    margin: 0px;
+    color: white;
+    font-family: "Proxima Nova";
+    border-radius: 20px;
+    padding-right: 16px;
+    padding-left: 16px;
+    height: 236px ;
+    transition: all 1s;
+    overflow: hidden;
+    padding-top: 16px;
+    position: relative;
+    
+    }
+    .elementMainExtended {
+        height:100vh ;
+        transition: all 1s;
+        position: relative;
+    
+    
+    }
 
 
 }
@@ -519,6 +614,7 @@ footer img {
     #promptQuestion {
         font-size: 23px;
         height: 78px;
+        
     }
 
 }
