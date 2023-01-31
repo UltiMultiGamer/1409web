@@ -1,7 +1,1 @@
->fix the mobile surveyinput bug
->add survey thing
->finalize footer
->ask for images for website logo
->make the stories format page ()
->cms shit kevin powell, remember, the website has the includes for the njk file through the layout: option, so the template you make with njk will be reflected within it, you and also include shit with #include
->Rewrite timer to have custom flags, description, links, link labels. switch to nested array format 
+im 2 good

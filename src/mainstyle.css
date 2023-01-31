@@ -2,9 +2,12 @@
     --main-color: rgb(86,136,216);
     --secondary-color: rgba(138,75,211,1)
 }
-
+.css-transitions-only-after-page-load * {
+    opacity: 0;
+  }
 html, body {
     overflow-x: hidden;
+    overscroll-behavior: none;
     
 }
 body {
@@ -264,8 +267,7 @@ rect {
 }
 .newsSection {
     
-    padding-right: 16px;
-    padding-left: 16px;
+    
 }
 
 .newsCaption {
@@ -343,9 +345,9 @@ rect {
 }
 
 #lessonTimeContainer {
-    margin-left: 16px;
+    
     padding: 8px;
-    width:calc(100% - 48px);
+    width:calc(100% - 16    px);
     box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
@@ -486,13 +488,7 @@ rect {
     padding-right: 20px;
     padding-left: 20px;
 } */
-#navDrop {
-    position: absolute;
-    background-color: white;
-    padding: 10px;
-    z-index: 999;
-    width: 100px;
-  }
+
   @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -518,26 +514,41 @@ rect {
   
   .nav-menu {
     visibility: hidden;
-    position:absolute;
+    position: absolute;
     opacity: 0;
     animation: fadeOut 0.5s forwards;
     z-index: 100;
     background-color: white;
     padding-left: 0px;
     box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-    text-align: center;
-    width: 100px;
-    height: 300px;
+    text-align: left;
+    width: 150px;
+    border-radius: 15px;
     
     
   }
+  .hidething {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+  }
   .nav-menu > a {
+    display: block;
+    width: 83%;
     list-style-type: none;
     text-decoration: none;
     color: black;
-    text-align: center;
-    padding: 30px;
-    padding: inherit;
+    text-align: left;
+    padding: 10px;
+    margin-left: 2px;
+    border-radius: 15px;
+
+  }
+  .nav-menu a:hover {
+    
+    transition: 0.2s all;
+    background-color: rgba(0,0,0,.2)
+    
     
   }
   .nav-menu.show {
@@ -547,7 +558,20 @@ rect {
     animation: fadeIn 0.5s forwards;
     z-index: 100;
   }
- 
+  #nav-menu hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: red ; 
+    opacity: 0;
+}
+  #nav-menu hr:first-of-type {
+    margin-top: 0px;
+  }
+  #nav-menu hr:last-of-type {
+    margin-bottom: 0px;
+    
+  }
+
 
 /* //////////////// */
 /* MEDIA QUERIES   */

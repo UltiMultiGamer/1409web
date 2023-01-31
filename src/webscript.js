@@ -12,18 +12,7 @@ textInput.addEventListener("input", function() {
 });
 
 
-document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
-    // Prevent the default behavior of the wheel event, which is to scroll the page
-    event.preventDefault();
 
-    if (event.deltaY > 0) {
-        // scroll right
-        this.scrollLeft += 50;
-    } else {
-        // scroll left
-        this.scrollLeft -= 50;
-    }
-    });
 
 
     function textAreaAdjust(element) {
@@ -145,8 +134,6 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
 
             }
             document.getElementById('lesson').innerText = interval;
-
-
         }
         function updateRemained(remainder) {
             document.getElementById('remaining').innerText ="Осталось: " + remainder + " Минут";
@@ -157,11 +144,14 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
 
         let newsAmount = document.querySelectorAll(".newsElement").length;
         let newsArray = document.querySelectorAll(".newsElement")
-        console.log(newsArray)
-        // for (let i = 0 ; i < newsAmount; i++) {
-        //     newsArray[i].style.backgroundImage = "url('https://source.unsplash.com/featured/" + Math.floor(Math.random()*1000) + "x" + Math.floor(Math.random()*1000) + "')";
-        // }
-        // let NewsCarouselVariable = document.getElementsByClassName("newsCaro").style.width = newsAmount*
+                
+        for (let i = 0 ; i < newsAmount; i++) {
+          newsArray[i].style.backgroundImage = `url('https://source.unsplash.com/random/1300x2000/?school')`
+        }
+        
+          
+
+        
         var keys = {37: 1, 38: 1, 39: 1, 40: 1};
         function preventDefault(e) {
             e.preventDefault();
@@ -210,13 +200,39 @@ document.querySelector('.newsCaro').addEventListener('wheel', function(event) {
 
         var menuButton = document.getElementById("hamburgerbutton");
         var navMenu = document.getElementById("nav-menu");
+        var thing = false
+        menuButton.addEventListener("click", function(){
+            if (thing == false) {
+                navMenu.classList.add("nav-menu")
+                thing = true
+                navMenu.classList.remove("hidething")
+            }
+
+
+        }) 
+        
+
+
         menuButton.addEventListener("click", function() {
         navMenu.classList.toggle("show");});
+        var offset = 90
+        if (window.innerWidth<=617) {
             navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
-            navMenu.style.left = menuButton.offsetLeft - 30 + "px"; 
-            
+            navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
+            } else {
+                navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
+                navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
+            }
         addEventListener("resize", (event) => {
-            
+            if (window.innerWidth<=617) {
             navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
-            navMenu.style.left = menuButton.offsetLeft - 30 + "px"; 
+            navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
+            } else {
+                navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
+                navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
+            }
+            
+            
         });
+
+        
