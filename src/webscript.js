@@ -142,16 +142,12 @@ textInput.addEventListener("input", function() {
         setInterval(updateProgressBar, 1000); // update progress bar every second
 
 
-        let newsAmount = document.querySelectorAll(".newsElement").length;
-        let newsArray = document.querySelectorAll(".newsElement")
+        // let newsAmount = document.querySelectorAll(".newsElement").length;
+        // let newsArray = document.querySelectorAll(".newsElement")
                 
-        for (let i = 0 ; i < newsAmount; i++) {
-          newsArray[i].style.backgroundImage = `url('https://source.unsplash.com/random/1300x2000/?school')`
-        }
-        
-          
-
-        
+        // for (let i = 0 ; i < newsAmount; i++) {
+        //   newsArray[i].style.backgroundImage = `url('https://source.unsplash.com/random/1300x2000/?school')`
+        // }
         var keys = {37: 1, 38: 1, 39: 1, 40: 1};
         function preventDefault(e) {
             e.preventDefault();
