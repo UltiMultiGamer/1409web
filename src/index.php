@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     
     <head>
-        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1">
-
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="mainstyle.css" rel="stylesheet" >
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +15,7 @@
 
     </head>
     <body>
+        <div id="main">
         <div class="navbarCont"style="left: 200px;">
         <a href="index.html" style="height: 52px;"><div class="logo"></div></a>
 
@@ -48,8 +48,8 @@
 
             <form>
                 <div class="formField">
-                    
-                    <textarea onkeyup="textAreaAdjust(this)"  class="textInput" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
+                    <!-- onkeyup="textAreaAdjust(this)" -->
+                    <textarea class="textInput" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
                     <label for="message">Сообщение</label>
                     
                 </div>
@@ -78,7 +78,7 @@
               
             
         </div>
-        <div class="secondContent">
+        
         <div class="newsSection">
             <p class="newsCaption">Последние события:</p>
                     <!-- THIS IS THE CAROSEL -->
@@ -119,36 +119,6 @@
                         <p class="newsSubLabel">01/03/2023</p>
                     </div>
                     </a>
-                    <a href="google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                    <a href="google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                    <a href="google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                    <a href="google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                    
-                    
                         
                     
                     
@@ -175,20 +145,20 @@
             </div>
             <br>
             <div class="chipscontainer">
-            <img> <a href="https://vk.com/im?sel=-210064026">📕 Подобрать олимпиаду</a>
+             <a href="https://vk.com/im?sel=-210064026">📕 Подобрать олимпиаду</a>
             </div>
             <div class="chipscontainer">
-            <img> <a href="https://vk.com/im?sel=-210064026">🥤 В кулере нет стаканчиков</a>
+            <a href="https://vk.com/im?sel=-210064026">🥤 В кулере нет стаканчиков</a>
             </div>
             <div class="chipscontainer">
-            <img> <a href="https://vk.com/im?sel=-210064026">🔑 Создать аккаунт</a>
+            <a href="https://vk.com/im?sel=-210064026">🔑 Создать аккаунт</a>
             </div>
             <div class="chipscontainer">
-            <img> <a href="https://vk.com/im?sel=-210064026">✉️ Еще...</a>
+            <a href="https://vk.com/im?sel=-210064026">✉️ Еще...</a>
             </div>
 
         </div>
-
+</div>
         <footer>
             <div>
                 

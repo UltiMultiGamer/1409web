@@ -1,6 +1,6 @@
 :root {
     --main-color: rgb(86,136,216);
-    --secondary-color: rgba(138,75,211,1)
+    --secondary-color: rgb(138,75,211)
 }
 .css-transitions-only-after-page-load * {
     opacity: 0;
@@ -9,6 +9,11 @@ html, body {
     overflow-x: hidden;
     overscroll-behavior: none;
     
+}
+#main {
+    box-sizing: content-box;
+    padding-bottom: 150px;
+
 }
 body {
     margin: 0px;
@@ -54,7 +59,7 @@ body > * {
 
 }
 .elementMainExtended {
-    height:100vh ;
+    height:700px ;
     transition: all 1s;
     position: relative;
 
@@ -129,13 +134,14 @@ body > * {
     border-radius: 10px;
     border: 0px solid black;
     height: 60px;
-    width: calc(100%);
+    width: 100%;
     font-size: 20px;
     margin-bottom: 32px;
     resize: none;
     font-family: "Proxima Nova";
     transition: all 1s;
     overflow-y: hidden;
+    box-sizing: border-box;
     
 }
 
@@ -444,7 +450,6 @@ rect {
   }
   footer {
     background-color: #EFEFEF;
-    margin-top: 100px;
     height: 100px;
     padding-left: 20px;
     padding-right: 20px;
@@ -453,7 +458,11 @@ rect {
     text-decoration: none;
     display: flex;
     justify-content: space-between;
-    
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+
     
   }
 .footertext {
@@ -539,6 +548,9 @@ rect {
     padding: 10px;
     margin-left: 2px;
     border-radius: 15px;
+    color: #9E9E9E;
+    font-weight: 800;
+    font-size: 20px;
 
   }
   .nav-menu a:hover {
@@ -597,7 +609,13 @@ rect {
         margin-bottom: 32px;
         transition: 0.2s all;
     }
+    .elementMainExtended {
+        height:700px ;
+        transition: all 1s;
+        position: relative;
     
+    
+    }
     
 }
 @media only screen and (max-width:543px) {
@@ -611,7 +629,7 @@ rect {
         transition: 0.2s all;
     }
     .elementMain {
-        background: var(--main-color);
+    background: var(--main-color);
     background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
     margin: 0px;
     color: white;
@@ -627,7 +645,7 @@ rect {
     
     }
     .elementMainExtended {
-        height:100vh ;
+        height:700px ;
         transition: all 1s;
         position: relative;
     

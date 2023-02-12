@@ -1,28 +1,41 @@
 
 
-const textInput = document.querySelector(".textInput");
-const label = document.querySelector(".textInput + label");
+// const textInput = document.querySelector(".textInput");
+// const label = document.querySelector(".textInput + label");
 
-textInput.addEventListener("input", function() {
-    if (this.value.length > 0) {
-        label.classList.add("has-text");
-    } else {
-        label.classList.remove("has-text");
-    }
-});
-
-
-
-
-
-    function textAreaAdjust(element) {
-        element.style.height = '0';
-        element.style.height = element.scrollHeight + 'px';
-
-    }
+// textInput.addEventListener("input", function() {
+//     if (this.value.length > 0) {
+//         label.classList.add("has-text");
+//     } else {
+//         label.classList.remove("has-text");
+//     }
+// });
+    // function textAreaAdjust(element) {
+    //     element.style.height = '0';
+    //     element.style.height = element.scrollHeight + 'px';
+    // removed since too buggy
+    // }
 
 
         // survey open logic
+
+        const footer = document.querySelector("footer");
+        const main = document.getElementById("main");
+        
+        const handleResize = () => {
+          if (window.innerHeight > parseInt(window.getComputedStyle(main).height) + footer.offsetHeight) {
+            footer.style.position = "fixed"
+            footer.style.width = "calc(100% - 60px)"
+          } else {
+            footer.style.position = "relative"
+            footer.style.position  ="100%"
+            
+          }
+        };
+        
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        
     function addClass() { 
     var iWillKMS = document.getElementById("message")
     var element = document.getElementsByClassName("elementMain");
@@ -68,7 +81,7 @@ textInput.addEventListener("input", function() {
         var currentMinute = currentTime.getMinutes();
         var currentTimeInHours = currentHour + currentMinute / 60;
         
-        console.log(currentTimeInHours)
+
 
         for (let i = 0; i < startTimes.length; i++) {
             
