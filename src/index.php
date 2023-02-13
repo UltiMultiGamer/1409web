@@ -15,6 +15,7 @@
 
     </head>
     <body>
+        <marquee behavior="alternate" direction="" scrollamount="1000"><a href="google.com">skill issue </a></marquee>
         <div id="main">
         <div class="navbarCont"style="left: 200px;">
         <a href="index.html" style="height: 52px;"><div class="logo"></div></a>
@@ -69,12 +70,7 @@
                 </div>
 
             </form>
-            <!-- <div>
-                <span class="inputLabel">Label</span>
-            <input id="messageInputId" type="text" class="surveyInput" autocomplete="off" onclick="changeClass()">
-            
-            </div> -->
-           
+
               
             
         </div>
@@ -87,40 +83,11 @@
                     <a href="google.com">
                         <div class="newsElement">
                         
-                            <h4 class="newsLabel">Школа 1409</h4>
-                            <p class="newsSubLabel">01/03/2023</p>
+                            <h4 class="newsLabel">Скоро будет контент...</h4>
+                            <p class="newsSubLabel">XX/XX/XXXX</p>
                         </div>
                         </a>
-                    <a href="google.com">
-                        <div class="newsElement">
-                        
-                            <h4 class="newsLabel">Школа 1409</h4>
-                            <p class="newsSubLabel">01/03/2023</p>
-                        </div>
-                        </a>
-                        <a href="https://google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                    <a href="google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                    <a href="google.com">
-                    <div class="newsElement">
-                    
-                        <h4 class="newsLabel">Школа 1409</h4>
-                        <p class="newsSubLabel">01/03/2023</p>
-                    </div>
-                    </a>
-                        
-                    
+
                     
                      
                 </div>
@@ -160,13 +127,25 @@
         </div>
 </div>
         <footer>
-            <div>
-                
-            </div>
-            <div>
+        <div id="footer-cont1">
+          <img src="hui.png">
 
+            <div id="footer-textcont1">
+                <h1>В Моменте</h1>
+                <h2>ул. Авиаконструктора Микояна, дом 2, Москва, 125167</h2>
+                <h2>Разработанно Фёдором Василенко</h2>
+                <h2></h2>
             </div>
-            
+        </div>
+        <div id="footer-socials">
+        <a href="">
+            <img src="telegram.png" alt="telegram" width="50" height="50">
+        </a>
+        <a href="">
+            <img src="vk.png" alt="vk" width="50" height="50">
+        </a>
+
+        </div>
         </footer>
         <script src="webscript.js">
                 

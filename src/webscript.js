@@ -28,7 +28,7 @@
             footer.style.width = "calc(100% - 60px)"
           } else {
             footer.style.position = "relative"
-            footer.style.position  ="100%"
+            footer.style.width  ="100%"
             
           }
         };
@@ -41,7 +41,7 @@
     var element = document.getElementsByClassName("elementMain");
     for(let i = 0; i < element.length; i += 1) {
         element.item(i).classList.add("elementMainExtended");
-        iWillKMS.style.height = '40vh';
+        iWillKMS.style.height = '300px';
         
         }}
         function removeClass() { 

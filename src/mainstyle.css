@@ -28,6 +28,8 @@ body {
 body > * {
     font-family: "Proxima Nova";
 }
+
+
 .logo {
 
  background-image: url(hui.png);
@@ -385,25 +387,23 @@ rect {
 }
 .newsElement {
   height: 200px;
-  background-color: black;
   color: white;
   display: inline-block;
   margin-right: 18px;
   text-align: center;
   border-radius: 16px;
-  background-color: black;
+  background-color: transparent;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-  background-image: url(placeholder.jpg);
   width: 130px;
-  background-size: contain;
+  background-size: cover;
   position: relative;
   transition: 0.2s all;
-
+  background-image: url(placeholder.png);
 
 }
 
 .newsElement:hover {
-    filter: brightness(0.8);
+    color: black;
     transition: 0.2s all;
 }
 .newsCaro {
@@ -457,44 +457,39 @@ rect {
     border-top-right-radius: 20px;
     text-decoration: none;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     position: relative;
     box-sizing: border-box;
     width: 100%;
     bottom: 0;
-
-    
   }
-.footertext {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    margin-right: 50px;
-    
-}
-.footertext a {
-    text-decoration: none;
-    color: black;
-    word-wrap: normal;
-    font-size: 10px;
-    white-space: nowrap;
-    
-    
-}
-.legal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #EFEFEF;
-    height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-/* .legal  {
-    padding-right: 20px;
-    padding-left: 20px;
-} */
 
+  footer h1 {
+    font-size: 24px;
+    margin: 0px;
+
+  }
+  footer h2 {
+    font-size: 14px;
+    margin: 0px;
+  }
+  #footer-textcont1 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+
+  }
+  #footer-cont1 {
+    display: flex;
+    justify-content: left;
+  }
+  #footer-socials {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+  }
   @keyframes fadeIn {
     from { 
         opacity: 0; 
