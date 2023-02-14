@@ -1,6 +1,0 @@
-1. Make the CMS yourself
-2. maybe make elementMain a carousel
-3. stories frontend
-4. coupon sql backend
-5. api endpoints (uh oh)
-6. 
