@@ -1,18 +1,16 @@
 :root {
     --main-color: rgb(86,136,216);
-    --secondary-color: rgb(138,75,211)
+    --secondary-color: rgb(138,75,211);
 }
 .css-transitions-only-after-page-load * {
     opacity: 0;
   }
 html, body {
-    overflow-x: hidden;
     overscroll-behavior: none;
     
 }
 #main {
     box-sizing: content-box;
-    padding-bottom: 150px;
 
 }
 body {
@@ -197,8 +195,7 @@ label {
     display: inline-block;
     margin: 8px;
     margin-top: 0px;
-
-
+    border: 0px solid;
     /* effects */
     position: relative;
     background-image: linear-gradient();
@@ -215,6 +212,7 @@ label {
     font-family: "Comfortaa";
     font-size: 14px;
     transition: 0.2s all;
+    padding: 8px;
     
 }
 
@@ -385,70 +383,22 @@ rect {
     
 
 }
-.newsElement {
-  height: 200px;
-  color: white;
-  display: inline-block;
-  margin-right: 18px;
-  text-align: center;
-  border-radius: 16px;
-  background-color: transparent;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-  width: 130px;
-  background-size: cover;
-  position: relative;
-  transition: 0.2s all;
-  background-image: url(placeholder.png);
 
+.nav-user-wrapper {
+display: flex;
+flex-direction: row;
+align-items: center;
+color: #9E9E9E;
 }
-
-.newsElement:hover {
-    color: black;
-    transition: 0.2s all;
+.nav-user-wrapper h3 {
+    margin-right: 5px;
 }
-.newsCaro {
-    overflow-x: scroll;
-    white-space: nowrap;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    
-
-
-}
-.newsCaro a {
-    filter: opacity(1);
+.nav-user-wrapper a {
+    color: #9E9E9E;
     text-decoration: none;
 }
-
-.newsLabel {
-    margin-top: 130px;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    width: 110px;
-    text-overflow:ellipsis;
-    overflow:hidden;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    white-space: normal;
-    position: absolute;
-    }
-.newsSubLabel {
-    font-size: 12px;
-    text-align: left;
-    margin-top: 175px;
-    margin-left: 10px;
-
-
-}
-
-.newsCaro::-webkit-scrollbar {
-    display: none;
-  }
   footer {
+    margin-top: 100px;
     background-color: #EFEFEF;
     height: 100px;
     padding-left: 20px;
@@ -514,9 +464,12 @@ rect {
   }
   
   .nav-menu {
+    right: 20px;
+    top: 70px;
     visibility: hidden;
     position: absolute;
     opacity: 0;
+    transition: top 0.5s;
     animation: fadeOut 0.5s forwards;
     z-index: 100;
     background-color: white;
@@ -533,38 +486,38 @@ rect {
     position: absolute;
     opacity: 0;
   }
-  .nav-menu > a {
+  .nav-menu a {
     display: block;
     width: 83%;
     list-style-type: none;
     text-decoration: none;
-    color: black;
+    color: #9E9E9E;
     text-align: left;
     padding: 10px;
     margin-left: 2px;
     border-radius: 15px;
-    color: #9E9E9E;
     font-weight: 800;
     font-size: 20px;
+    cursor: pointer;
 
   }
   .nav-menu a:hover {
-    
     transition: 0.2s all;
     background-color: rgba(0,0,0,.2)
-    
-    
   }
   .nav-menu.show {
+    right: 20px;
+    top: 60px;
     visibility: visible;
     position: absolute;
     opacity: 1;
     animation: fadeIn 0.5s forwards;
+    transition: top 0.5s;
     z-index: 100;
   }
   #nav-menu hr {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-color: red ; 
     opacity: 0;
 }
@@ -661,4 +614,14 @@ rect {
         
     }
 
+}
+
+@media only screen and (max-width: 414px) {
+footer h2 {
+    display: none;
+}
+footer h1 {
+    font-size: 16px;
+
+}
 }

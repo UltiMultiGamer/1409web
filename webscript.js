@@ -35,22 +35,24 @@
         
         window.addEventListener("resize", handleResize);
         handleResize();
-        
+        var sussy = document.getElementsByClassName("textIput")
     function addClass() { 
-    var iWillKMS = document.getElementById("message")
+    var sassy = document.getElementById("message")
     var element = document.getElementsByClassName("elementMain");
     for(let i = 0; i < element.length; i += 1) {
         element.item(i).classList.add("elementMainExtended");
-        iWillKMS.style.height = '300px';
+        sassy.style.height = '300px';
         
         }}
         function removeClass() { 
-            var iWillKMS = document.getElementById("message")
+            var sassy = document.getElementById("message")
             var element = document.getElementsByClassName("elementMain");
             for(let i = 0; i < element.length; i += 1) {
                 element.item(i).classList.remove("elementMainExtended");
-                iWillKMS.style.height = '60px';
-                
+                sassy.style.height = '60px';
+                for (let index = 0; index < sussy.length; index++) {
+                  sussy[index].value = ''
+              }
                 }}
 
         // navbar logic
@@ -224,24 +226,6 @@
 
         menuButton.addEventListener("click", function() {
         navMenu.classList.toggle("show");});
-        var offset = 90
-        if (window.innerWidth<=617) {
-            navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
-            navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
-            } else {
-                navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
-                navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
-            }
-        addEventListener("resize", (event) => {
-            if (window.innerWidth<=617) {
-            navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
-            navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
-            } else {
-                navMenu.style.top = menuButton.offsetTop + menuButton.offsetHeight + 5 + "px";
-                navMenu.style.left = menuButton.offsetLeft - offset + "px"; 
-            }
-            
-            
-        });
+
 
         
