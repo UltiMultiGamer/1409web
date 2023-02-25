@@ -223,9 +223,40 @@
         }) 
         
 
-
+        // handle menu open and close
         menuButton.addEventListener("click", function() {
         navMenu.classList.toggle("show");});
+
+
+        function sendEmail() {
+          // Get form values
+          var message = document.getElementById("message").value;
+          var email = document.getElementById("email").value;
+        
+          // Check if message and email are not empty
+          if (message.trim() !== "" && email.trim() !== "") {
+            // Construct email body
+            var body = "Message: " + message + "\n\n" + "Email: " + email;
+        
+            // Send email using mailto link
+            var mailtoLink = "mailto:1409support@gmail.com?subject=New message&body=" + encodeURIComponent(body);
+            window.location.href = mailtoLink;
+        
+            // Clear form inputs
+            clearInputs();
+          } else {
+            alert("Введине е-mail и сообщение.");
+          }
+        }
+        
+        function clearInputs() {
+          document.getElementById("message").value = "";
+          document.getElementById("email").value = "";
+        }
+        
+
+
+
 
 
         

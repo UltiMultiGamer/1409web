@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $post_id = $_GET['id'];
 } else {
     // Redirect the user to the dashboard if the post ID is not set
-    header("Location: dashboard.php");
+    header("Location: index.php");
     exit();
 }
 
@@ -26,7 +26,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows == 0) {
     // Redirect the user to the dashboard if the post ID is invalid
-    header("Location: dashboard.php");
+    header("Location: index.php");
     exit();
 }
 
@@ -93,7 +93,7 @@ if ($next_post_result->num_rows > 0) {
     $next_post_url = "post.php?id=$next_post_id&sort=$sorting_option";
 } else {
     // If there are no more posts, redirect the user to the dashboard
-    $next_post_url = "dashboard.php";
+    $next_post_url = "index.php";
 }
 
 if ($prev_post_result->num_rows > 0) {
@@ -101,7 +101,7 @@ if ($prev_post_result->num_rows > 0) {
     $prev_post_url = "post.php?id=$prev_post_id&sort=$sorting_option";
 } else {
     // If there are no previous posts, redirect the user to the dashboard
-    $prev_post_url = "dashboard.php";
+    $prev_post_url = "index.php";
 
 }
 
@@ -169,12 +169,12 @@ if ($next_post_result->num_rows > 0) {
     </div>
 </div>
 <!-- <div class="navigation">
-    <?php if ($prev_post_url != "dashboard.php") { ?>
+    <?php if ($prev_post_url != "index.php") { ?>
         <a href="<?php echo $prev_post_url; ?>" class="previous-post">
             <img class="left" src="left.png" alt="Previous Post" height="50" width="50">
         </a>
     <?php } ?>
-    <?php if ($next_post_url != "dashboard.php") { ?>
+    <?php if ($next_post_url != "index.php") { ?>
         <a href="<?php echo $next_post_url; ?>" class="next-post">
             <img class="right" src="right.png" alt="Next Post" height="50" width="50">
         </a>

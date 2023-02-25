@@ -1,4 +1,4 @@
-var limit = 10; // Number of posts to load per request
+var limit = 10; // Number of posts to load per requestoffset
 var offset = 10; // Number of posts to skip
 
 // Attach click event to Load More button

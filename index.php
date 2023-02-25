@@ -109,29 +109,25 @@ $result = $conn->query($sql);
             <h3 id="promptQuestion">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
 
 
-            <form>
-                <div class="formField">
-                    <!-- onkeyup="textAreaAdjust(this)" -->
-                    <textarea class="textInput" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
-                    <label for="message">Сообщение</label>
-                    
-                </div>
-                <div class="formField">
-                    
-                    <input class="textInput" type="text" id="email" placeholder=" ">
-                    <label for="email">Е-Mail</label>
-                    
-                </div>
-                <div class="buttoncontainer">
-                <button class="surveyButton" onclick="removeClass()" type="button">
-                    Отправить! 
+            <form id="message-form">
+            <div class="formField">
+                <textarea class="textInput" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
+                <label for="message">Сообщение</label>
+            </div>
+            <div class="formField">
+                <input class="textInput" type="text" id="email" placeholder=" ">
+                <label for="email">Е-Mail</label>
+            </div>
+            <div class="buttoncontainer">
+                <button class="surveyButton" onclick="sendEmail()" type="button">
+                Отправить! 
                 </button>
-                <button class="surveyButton" onclick="removeClass()" type="button">
-                    Отменить 
+                <button class="surveyButton" onclick="clearInputs(); removeClass()" type="button">
+                Отменить 
                 </button>
-                </div>
-
+            </div>
             </form>
+
 
               
             

@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "ssssssss", $title, $description, $media_type, $button_label, $button_link, $author, $file_path, $author_id);
             mysqli_stmt_execute($stmt);
 
-            header("location: dashboard.php");
+            header("location: index.php");
         } else {
             echo "Извините, произошла ошибка во время создания поста.";
         }
@@ -115,6 +115,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Создать">
-        <a href="dashboard.php" class="btn btn-default">Отменить</a>
+        <a href="index.php" class="btn btn-default">Отменить</a>
     </div>
 </form>
