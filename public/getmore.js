@@ -23,8 +23,8 @@ document.getElementById("load-more").addEventListener("click", function() {
                     postCard.classList.add("post-card");
                     var linkthing = "<a href='post.php?id=" + post.postid  + "'" + ' class="post-link">';
                     var media = post.media_type == "image"
-                        ? "<img src='uploads/" + post.file_path + "' alt=''>"
-                        : "<video src='uploads/" + post.file_path + "' controls></video>";
+                        ? "<img src='../uploads/" + post.file_path + "' alt=''>"
+                        : "<video src='../uploads/" + post.file_path + "' controls></video>";
                     postCard.innerHTML = linkthing + media +
                         "<div class='post-details'>" +
                         "<div class='title'><h3>" + post.title + "</h3></div>" +

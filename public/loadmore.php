@@ -1,5 +1,5 @@
 <?php
-require_once "config.php";
+require_once "../auth/config.php";
 
 // Get the offset and limit parameters from the request
 $offset = $_GET["offset"];

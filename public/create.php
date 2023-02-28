@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "postconfig.php";
+require_once "../auth/postconfig.php";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $author = $_SESSION["username"];
     $author_id = $_SESSION["id"];
 
-    $target_dir = "uploads/";
+    $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

@@ -1,13 +1,23 @@
 <?php
 $servername = "localhost";
-$serverusername = "master";
+$username = "master";
 $password = "";
 $dbname = "social";
 // Create connection
-$conn = new mysqli($servername, $serverusername, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    $username = $_SESSION["username"];
+    $id = $_SESSION["id"];
+} else {
+    // Redirect user to login page
+    header("location: login.php");
+    exit;
+}
 
-
+    $username = $_SESSION["username"];
+    $id = $_SESSION["id"];
+    //Make sure to include this in new pages in order to keep the $id variable alive
 
 // Check connection
 if ($conn->connect_error) {
@@ -45,9 +55,12 @@ if (isset($_POST['button_link'])) {
     $button_link = '';
 }
 
+$author = $_SESSION['username'];
+$author_id = $id;
+
 // Check if file was uploaded without errors
 if(isset($_FILES["media"]) && $_FILES["media"]["error"] == 0){
-    $target_dir = "uploads/";
+    $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["media"]["name"]);
     $file_type = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     $file_name = uniqid() . '.' . $file_type;

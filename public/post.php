@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Include the database configuration file
-require_once "postconfig.php";
+require_once "../auth/postconfig.php";
 
 // Get the post ID from the URL parameter
 if (isset($_GET['id'])) {
@@ -46,7 +46,7 @@ $post_details = array(
     "likes" => $row["likes"],
     "dislikes" => $row["dislikes"]
 );
-$media_path = "uploads/" . $post_details["file_path"];
+$media_path = "../uploads/" . $post_details["file_path"];
 $created_at = $post_details["created_at"];
 $time_diff = time_diff($created_at);
 
@@ -76,7 +76,7 @@ function time_diff($created_at) {
 
 
 
-// Generate the URLs for the next and previous posts based on the sorting option
+// Generate the URLs for the next and previous posts based on the sort
 if ($sorting_option == "new") {
     $next_post_sql = "SELECT id FROM posts WHERE created_at > '$created_at' ORDER BY created_at ASC LIMIT 1";
     $prev_post_sql = "SELECT id FROM posts WHERE created_at < '$created_at' ORDER BY created_at DESC LIMIT 1";
@@ -102,7 +102,6 @@ if ($prev_post_result->num_rows > 0) {
 } else {
     // If there are no previous posts, redirect the user to the dashboard
     $prev_post_url = "index.php";
-
 }
 
 // Get the post details for the next post
@@ -124,7 +123,7 @@ if ($next_post_result->num_rows > 0) {
         "likes" => $next_post_row["likes"],
         "dislikes" => $next_post_row["dislikes"]
     );
-    $next_post_media_path = "uploads/" . $next_post_details["file_path"];
+    $next_post_media_path = "../uploads/" . $next_post_details["file_path"];
 }
 
 
@@ -197,6 +196,7 @@ if ($next_post_result->num_rows > 0) {
 <script>
         $(document).ready(function() {
             // Swipe event listeners for touch devices
+            // Rework this shit please
             var xDown = null;
             var yDown = null;
 

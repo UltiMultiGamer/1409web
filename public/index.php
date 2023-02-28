@@ -32,7 +32,7 @@ if(isset($_POST['logout'])){
 }
 
 // Database configuration and connection
-require_once "postconfignoverify.php";
+require_once "../auth/postconfignoverify.php";
 // Set limit for number of posts to display at a time
 $limit = 10;
 // Check if page variable is set, if not set to 1
@@ -147,7 +147,7 @@ $result = $conn->query($sql);
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
                 $title = $row["title"];
-                $media_path = "uploads/" . $row["file_path"];
+                $media_path = "../uploads/" . $row["file_path"];
                 $author = "@" . $row["author"];
                 $likes = $row["likes"];
                 $dislikes = $row["dislikes"];
