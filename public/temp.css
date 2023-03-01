@@ -15,6 +15,16 @@ body{
    scroll-snap-type: x mandatory;
 
 }
+.carousel-container p {
+    color: #9E9E9E;
+    font-family:"Proxima Nova";
+    font-weight: 800;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    margin: 0px;
+
+}
 
 
 .carousel-container::-webkit-scrollbar {

@@ -177,12 +177,12 @@ $result = $conn->query($sql);
 // If there are more posts, show the "Load More" button
 if ($result->num_rows == 10) {
     ?>
-    <button id="load-more" class="btn btn-primary">Load More</button>
+    <button id="load-more" class="btn btn-primary">Загрузить больше</button>
 
 <?php
 }
 } else {
-    echo "Нет постов.";
+    echo "<p>Нет постов.</p>";
     }
     
     $conn->close();
