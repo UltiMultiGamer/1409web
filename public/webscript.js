@@ -1,9 +1,9 @@
 
 
-// const textInput = document.querySelector(".textInput");
-// const label = document.querySelector(".textInput + label");
+// const text-input = document.querySelector(".text-input");
+// const label = document.querySelector(".text-input + label");
 
-// textInput.addEventListener("input", function() {
+// text-input.addEventListener("input", function() {
 //     if (this.value.length > 0) {
 //         label.classList.add("has-text");
 //     } else {
@@ -38,17 +38,17 @@
         var sussy = document.getElementsByClassName("textIput")
     function addClass() { 
     var sassy = document.getElementById("message")
-    var element = document.getElementsByClassName("elementMain");
+    var element = document.getElementsByClassName("element-main");
     for(let i = 0; i < element.length; i += 1) {
-        element.item(i).classList.add("elementMainExtended");
+        element.item(i).classList.add("element-main-extended");
         sassy.style.height = '300px';
         
         }}
         function removeClass() { 
             var sassy = document.getElementById("message")
-            var element = document.getElementsByClassName("elementMain");
+            var element = document.getElementsByClassName("element-main");
             for(let i = 0; i < element.length; i += 1) {
-                element.item(i).classList.remove("elementMainExtended");
+                element.item(i).classList.remove("element-main-extended");
                 sassy.style.height = '60px';
                 for (let index = 0; index < sussy.length; index++) {
                   sussy[index].value = ''
@@ -126,12 +126,12 @@
         }
         function updateProgressBarColor(color) {
         // code to update progress bar color goes here
-        document.getElementById('lessonTimeContainer').style.setProperty('--before-background-color', color);
+        document.getElementById('lesson-time-container').style.setProperty('--before-background-color', color);
         }
         function updateProgressBarWidth(percentage,seconds,dura) {
         // code to update progress bar width goes here
 
-        document.getElementById('lessonTimeContainer').style.setProperty('--before-width', percentage + "%");
+        document.getElementById('lesson-time-container').style.setProperty('--before-width', percentage + "%");
         
         
         }

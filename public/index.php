@@ -98,28 +98,28 @@ $result = $conn->query($sql);
         </div>
     </div>
        
-        <div class="elementMainExtended" style="display:none ;"></div>       
+        <div class="element-main-extended" style="display:none ;"></div>       
 
         
-        <div class="elementMain">
+        <div class="element-main">
             
-            <h3 id="promptQuestion">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
+            <h3 id="prompt-question">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
 
 
             <form id="message-form">
-            <div class="formField">
-                <textarea class="textInput" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
+            <div class="form-field">
+                <textarea class="text-input" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
                 <label for="message">Сообщение</label>
             </div>
-            <div class="formField">
-                <input class="textInput" type="text" id="email" placeholder=" ">
+            <div class="form-field">
+                <input class="text-input" type="text" id="email" placeholder=" ">
                 <label for="email">Е-Mail</label>
             </div>
-            <div class="buttoncontainer">
-                <button class="surveyButton" onclick="sendEmail()" type="button">
+            <div class="button-container">
+                <button class="survey-button" onclick="sendEmail()" type="button">
                 Отправить! 
                 </button>
-                <button class="surveyButton" onclick="clearInputs(); removeClass()" type="button">
+                <button class="survey-button" onclick="clearInputs(); removeClass()" type="button">
                 Отменить 
                 </button>
             </div>
@@ -130,8 +130,8 @@ $result = $conn->query($sql);
             
         </div>
         
-        <div class="newsSection">
-            <p class="newsCaption">Последние события:</p>
+        <div class="news-section">
+            <p class="news-caption">Последние события:</p>
                     <!-- THIS IS THE CAROSEL -->
                 <!-- <div class="newsCaro">
                 
@@ -195,13 +195,13 @@ if ($result->num_rows == 10) {
              <a href="create.php">📸 Создать Пост</a>
         </div>
 
-        <div class="scheduleSection">
-            <div id="lessonTimeContainer">
-                <div id="lessonAndSched">
+        <div class="schedule-section">
+            <div id="lesson-time-container">
+                <div id="lesson-and-sched">
                 <p id="lesson"></p>
                 <p id="sched"></p>  
                 </div>
-                <div id="remainingCont">
+                <div id="remaining-container">
                 <!-- <p id="time" onload="currentTime()"></p> -->
                 <p id="remaining"></p> 
                 </div>
@@ -209,7 +209,7 @@ if ($result->num_rows == 10) {
         </div>
         <div>
             <div class="chatbotcaption">
-            <img src="chatbot.png" style="width: 30px;height: 30px;"> <p class="newsCaption">Чат Бот</p>
+            <img src="chatbot.png" style="width: 30px;height: 30px;"> <p class="news-caption">Чат Бот</p>
             </div>
             <br>
             <div class="chipscontainer">

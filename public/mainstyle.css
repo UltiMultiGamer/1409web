@@ -39,7 +39,7 @@ body > * {
 
 }
 
-.elementMain {
+.element-main {
     background: var(--main-color);
     background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
     margin: 0px;
@@ -58,7 +58,7 @@ body > * {
     
 
 }
-.elementMainExtended {
+.element-main-extended {
     height:700px ;
     transition: all 1s;
     position: relative;
@@ -74,7 +74,7 @@ body > * {
 }
 
 
-#promptQuestion {
+#prompt-question {
     font-size: 32px;
     
 }
@@ -99,12 +99,12 @@ body > * {
     
     
 }
-.formField {
+.form-field {
     position: relative;
     
 }
 
-.surveyButton {
+.survey-button {
     width: 200px;
     height: 55px;
     background-color: white;
@@ -118,19 +118,19 @@ body > * {
     transition: all 0.2s;
     
 }
-.surveyButton:hover {
+.survey-button:hover {
     filter: brightness(0.8);
     transition: 0.2s all;
 
     
 }
-.buttoncontainer {
+.button-container {
     display: flex;
     justify-content: space-between;
     align-content: space-between;
     gap: 12px;
 }
-.textInput {
+.text-input {
     border-radius: 10px;
     border: 0px solid black;
     height: 60px;
@@ -145,12 +145,12 @@ body > * {
     
 }
 
-.textInput:focus {
+.text-input:focus {
     border: 0px solid black;
     outline: none;
 
 }
-.textInput + label {
+.text-input + label {
     position: absolute;
     top: 4px;
     left: 5px;
@@ -159,7 +159,7 @@ body > * {
     color: rgba(138,75,211,1);
     font-weight: 500;
 }
-.textInput:focus + label {
+.text-input:focus + label {
     font-size: smaller;
     top: -20px;
     transition: 0.2s all;
@@ -167,14 +167,14 @@ body > * {
 
 }
 
-.textInput:not(:placeholder-shown) + label {
+.text-input:not(:placeholder-shown) + label {
     font-size: smaller;
     top: -20px;
     transition: 0.2s all;
     color: white;
 }
 
-.textInput + label.has-text {
+.text-input + label.has-text {
     font-size: smaller;
     top: -20px;
     transition: 0.2s all;
@@ -273,7 +273,7 @@ rect {
 }
 
 
-.newsCaption {
+.news-caption {
     color: #9E9E9E;
     font-family:"Proxima Nova";
     font-weight: 800;
@@ -347,7 +347,7 @@ rect {
 
 }
 
-#lessonTimeContainer {
+#lesson-time-container {
     
     padding: 8px;
     width:calc(100% - 16    px);
@@ -363,7 +363,7 @@ rect {
     overflow: hidden;
     position: relative;
 }
-#lessonTimeContainer::before {
+#lesson-time-container::before {
     
     
     overflow: hidden;
@@ -550,14 +550,14 @@ color: #9E9E9E;
         font-size: 30px ;
         transition: 0.2s all;
     }
-    #promptQuestion {
+    #prompt-question {
         font-size: 30px;
         height: 78px;
         margin-top: 32px;
         margin-bottom: 32px;
         transition: 0.2s all;
     }
-    .elementMainExtended {
+    .element-main-extended {
         height:700px ;
         transition: all 1s;
         position: relative;
@@ -567,7 +567,7 @@ color: #9E9E9E;
     
 }
 @media only screen and (max-width:543px) {
-    #promptQuestion {
+    #prompt-question {
         font-size: 28px;
         height: 78px;
         margin-bottom: 47px;
@@ -576,7 +576,7 @@ color: #9E9E9E;
         font-size: 26px ;
         transition: 0.2s all;
     }
-    .elementMain {
+    .element-main {
     background: var(--main-color);
     background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
     margin: 0px;
@@ -592,7 +592,7 @@ color: #9E9E9E;
     position: relative;
     
     }
-    .elementMainExtended {
+    .element-main-extended {
         height:700px ;
         transition: all 1s;
         position: relative;
@@ -608,7 +608,7 @@ color: #9E9E9E;
         font-size: 26px ;
         transition: 0.2s all;
     }
-    #promptQuestion {
+    #prompt-question {
         font-size: 23px;
         height: 78px;
         
