@@ -117,7 +117,7 @@
 </div>
         <footer>
         <div id="footer-cont1">
-          <img src="hui.png">
+          <img src="logo.png">
 
             <div id="footer-textcont1">
                 <h1>В Моменте</h1>

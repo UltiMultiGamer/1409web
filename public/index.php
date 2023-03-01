@@ -49,8 +49,7 @@ $sql = "SELECT * FROM posts ORDER BY id DESC LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -65,9 +64,7 @@ $result = $conn->query($sql);
 <link rel="icon" href="chatbot.png">
 <link rel="stylesheet" href="temp.css">
 <title>MY1409</title>
-
-
-    </head>
+</head>
 
 
 
@@ -232,7 +229,7 @@ if ($result->num_rows == 10) {
 </div>
         <footer>
         <div id="footer-cont1">
-          <img src="hui.png">
+          <img src="logo.png">
 
             <div id="footer-textcont1">
                 <h1>В Моменте</h1>

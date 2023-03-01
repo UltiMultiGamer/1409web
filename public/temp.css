@@ -12,8 +12,10 @@ body{
    overflow-x: scroll;
    white-space: nowrap;
    margin-bottom: 10px;
+   scroll-snap-type: x mandatory;
 
 }
+
 
 .carousel-container::-webkit-scrollbar {
     display: none;
@@ -34,12 +36,14 @@ body{
  height: 300px;
  object-fit: cover;
  border-radius: 15px;
+ scroll-snap-align: start; 
 }
 .post-card video {
  width: 200px;
  height: 300px;
  object-fit: cover;
  border-radius: 15px;
+ scroll-snap-align: start; 
 }
 .post-details {
  display: flex;
@@ -65,9 +69,7 @@ color: inherit;
     justify-content: left;
 
 }
-.title {
-    
-}
+
 .title h3 {
     overflow: hidden;
     white-space: nowrap;

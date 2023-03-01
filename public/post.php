@@ -110,20 +110,41 @@ if ($next_post_result->num_rows > 0) {
     $next_post_result = $conn->query($next_post_sql);
     $next_post_row = $next_post_result->fetch_assoc();
     $next_post_details = array(
-        "id" => $next_post_row["id"],
+        // "id" => $next_post_row["id"],
         "title" => $next_post_row["title"],
-        "description" => $next_post_row["description"],
+        // "description" => $next_post_row["description"],
         "media_type" => $next_post_row["media_type"],
-        "file_path" => $next_post_row["file_path"],
-        "button_label" => $next_post_row["button_label"],
-        "button_link" => $next_post_row["button_link"],
-        "author" => "@" . $next_post_row["author"],
-        "author_id" => $next_post_row["author_id"],
-        "created_at" => $next_post_row["created_at"],
-        "likes" => $next_post_row["likes"],
-        "dislikes" => $next_post_row["dislikes"]
+        "file_path" => $next_post_row["file_path"]
+        // "button_label" => $next_post_row["button_label"],
+        // "button_link" => $next_post_row["button_link"],
+        // "author" => "@" . $next_post_row["author"],
+        // "author_id" => $next_post_row["author_id"],
+        // "created_at" => $next_post_row["created_at"],
+        // "likes" => $next_post_row["likes"],
+        // "dislikes" => $next_post_row["dislikes"]
     );
     $next_post_media_path = "../uploads/" . $next_post_details["file_path"];
+}
+
+if ($prev_post_result->num_rows > 0) { 
+    $prev_post_sql = "SELECT * FROM posts WHERE id = $prev_post_id LIMIT 1";
+    $prev_post_result = $conn->query($prev_post_sql);
+    $prev_post_row = $prev_post_result->fetch_assoc();
+    $prev_post_details = array(
+        // "id" => $prev_post_row["id"],
+        "title" => $prev_post_row["title"],
+        // "description" => $prev_post_row["description"],
+        "media_type" => $prev_post_row["media_type"],
+        "file_path" => $prev_post_row["file_path"]
+        // "button_label" => $prev_post_row["button_label"],
+        // "button_link" => $prev_post_row["button_link"],
+        // "author" => "@" . $prev_post_row["author"],
+        // "author_id" => $prev_post_row["author_id"],
+        // "created_at" => $prev_post_row["created_at"],
+        // "likes" => $prev_post_row["likes"],
+        // "dislikes" => $prev_post_row["dislikes"]
+    );
+    $prev_post_media_path = "../uploads/" . $prev_post_details["file_path"];
 }
 
 
@@ -131,17 +152,36 @@ if ($next_post_result->num_rows > 0) {
 
 // Generate the HTML for the post
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-    <link rel="stylesheet" href="viewingpost.css">
-    <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
-    <meta name="viewport" content="width=device-width initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+    <link rel="stylesheet" href="viewingpost.css">
+    <title>Document</title>
 </head>
-<div class="superwrapper">
+<body>
+<div class="superwrapper" id="superwrapper">
+<div class="post-preview">
+    <?php if ($prev_post_result->num_rows > 0) { ?>
+        <a href="<?php echo $prev_post_url; ?>">
+            <?php if ($prev_post_details["media_type"] == "image") { ?>
+                <img src="<?php echo $prev_post_media_path; ?>" alt="<?php echo $prev_post_details["title"]; ?>">
+            <?php } else if ($prev_post_details["media_type"] == "video") { ?>
+                <video src="<?php echo $prev_post_media_path; ?>" controls></video>
+            <?php } ?>
+
+        </a>
+    <?php } ?>
+</div>
+
+
 <div class="post-details">
+        <a id="mainpost"></a>
     <?php if ($post_details["media_type"] == "image") { ?>
         <img src="<?php echo $media_path; ?>" alt="<?php echo $post_details["title"]; ?>">
     <?php } else if ($post_details["media_type"] == "video") { ?>
@@ -167,19 +207,6 @@ if ($next_post_result->num_rows > 0) {
         
     </div>
 </div>
-<!-- <div class="navigation">
-    <?php if ($prev_post_url != "index.php") { ?>
-        <a href="<?php echo $prev_post_url; ?>" class="previous-post">
-            <img class="left" src="left.png" alt="Previous Post" height="50" width="50">
-        </a>
-    <?php } ?>
-    <?php if ($next_post_url != "index.php") { ?>
-        <a href="<?php echo $next_post_url; ?>" class="next-post">
-            <img class="right" src="right.png" alt="Next Post" height="50" width="50">
-        </a>
-    <?php } ?>
-</div> -->
-
 <div class="post-preview">
     <?php if ($next_post_result->num_rows > 0) { ?>
         <a href="<?php echo $next_post_url; ?>">
@@ -192,93 +219,31 @@ if ($next_post_result->num_rows > 0) {
         </a>
     <?php } ?>
 </div>
+
 </div>
+</body>
 <script>
-        $(document).ready(function() {
-            // Swipe event listeners for touch devices
-            // Rework this shit please
-            var xDown = null;
-            var yDown = null;
-
-            function getTouches(evt) {
-                return evt.touches ||             // browser API
-                    evt.originalEvent.touches; // jQuery
-            }
-
-            function handleTouchStart(evt) {
-                const firstTouch = getTouches(evt)[0];
-                xDown = firstTouch.clientX;
-                yDown = firstTouch.clientY;
-            };
-
-            function handleTouchMove(evt) {
-                if (!xDown || !yDown) {
-                    return;
-                }
-
-                var xUp = evt.touches[0].clientX;
-                var yUp = evt.touches[0].clientY;
-
-                var xDiff = xDown - xUp;
-                var yDiff = yDown - yUp;
-
-                if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                    if (xDiff > 0) {
-                        // swipe left
-                        window.location.href = "<?php echo $next_post_url; ?>";
-                    } else {
-                        // swipe right
-                        window.location.href = "<?php echo $prev_post_url; ?>";
-                    }
-                } else {
-                    if (yDiff > 0) {
-                        // swipe up
-                        window.location.href = "<?php echo $next_post_url; ?>";
-                    } else {
-                        // swipe down
-                        window.location.href = "<?php echo $prev_post_url; ?>";
-                        
-                    }
-                }
-                /* reset values */
-                xDown = null;
-                yDown = null;
-            };
-
-            // Swipe event listeners for desktop
-            var isDragging = false;
-            var startX, endX;
-
-            function handleMouseDown(evt) {
-                isDragging = true;
-                startX = evt.clientX;
-            }
-
-            function handleMouseMove(evt) {
-                if (!isDragging) {
-                    return;
-                }
-                endX = evt.clientX;
-            }
-
-            function handleMouseUp(evt) {
-                isDragging = false;
-                if (startX - endX > 0) {
-                    // swipe left
-                    
-                } else {
-                    // swipe right
-                    
-                }
-            }
-
-            // Add event listeners
-            document.addEventListener('touchstart', handleTouchStart, false);
-            document.addEventListener('touchmove', handleTouchMove, false);
-            document.addEventListener('mousedown', handleMouseDown, false);
-            document.addEventListener('mousemove', handleMouseMove, false);
-            document.addEventListener('mouseup', handleMouseUp, false);
-        });
-    </script>
 
 
+const amongus = document.getElementById("superwrapper")
+amongus.scroll(0,500)
+
+function handleScroll() {
+    const nextlink = "<?php echo $next_post_url; ?>"
+    const prevlink = "<?php echo $prev_post_url; ?>"
+  const superwrapper = document.querySelector('#superwrapper');
+
+  if (superwrapper.scrollTop === 0) {
+    // User has scrolled to the top of #superwrapper
+    window.location.href = prevlink;
+  } else if (superwrapper.scrollTop + superwrapper.clientHeight === superwrapper.scrollHeight) {
+    // User has scrolled to the bottom of #superwrapper
+    window.location.href = nextlink;
+  }
+}
+
+document.querySelector('#superwrapper').onscroll = handleScroll;
+
+
+</script>
+</html>
