@@ -133,45 +133,57 @@ if(empty(trim($_POST["password"]))){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+    <link rel="icon" href="chatbot.png">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="forms.css">
     <style type="text/css">
-        .wrapper{ 
-            width: 500px; 
-            padding: 20px;
-            margin: auto;
-        }
+
     </style>
 </head>
 <body>
-    <div class="wrapper">
+<div class="bgimg"></div>
+    <div class="form-wrapper">
         <h2>Регистрация</h2>
         <p>Пожалуйста, введите ваши данные чтобы создать аккаунт.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+
+
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <input type="email" name="email" class="text-input" value="<?php echo $email; ?>" placeholder=" ">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
                 <span class="help-block"><?php echo $email_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Пароль</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Подтвердите Пароль</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
+            </div> 
+
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <input type="text" name="username" class="text-input" value="<?php echo $username; ?>" placeholder=" ">
                 <label>Имя Пользователя</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Отправить">
-                <input type="reset" class="btn btn-default" value="Сбросить">
+            
+
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <input type="password" name="password" class="text-input" value="<?php echo $password; ?>" placeholder=" ">
+                <label>Пароль</label>
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+
+
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <input type="password" name="confirm_password" class="text-input" value="<?php echo $confirm_password; ?>" placeholder=" ">
+                <label>Подтвердите Пароль</label>
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+
+
+
+            <div class="form-group align-horiz">
+                <input type="submit" class="button" value="Отправить">
+                <input type="reset" class="button" value="Сбросить">
             </div>
             <p>Уже есть аккаунт? <a href="login.php">Зайдите здесь</a>.</p>
         </form>

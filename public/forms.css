@@ -1,0 +1,271 @@
+
+:root {
+    --main-color: rgb(86,136,216);
+    --secondary-color: rgb(138,75,211);
+    
+}
+* {
+    font-family: "Proxima Nova";
+    color: white;
+    margin: 0px;
+}
+.bgimg{
+    height: 100%;
+    width: 100%;
+    filter: blur(3px);
+    background-size: cover;
+    object-fit: cover;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='5000' height='5000' preserveAspectRatio='none' viewBox='0 0 5000 5000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1046%26quot%3b)' fill='none'%3e%3crect width='5000' height='5000' x='0' y='0' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M1975.325%2c865.457C2148.442%2c874.628%2c2328.184%2c801.381%2c2409.16%2c648.095C2486.333%2c502.009%2c2411.234%2c336.7%2c2330.927%2c192.313C2247.36%2c42.064%2c2147.096%2c-124.635%2c1975.325%2c-131.915C1795.153%2c-139.551%2c1642.614%2c-2.212%2c1563.382%2c159.784C1492.884%2c303.921%2c1533.521%2c467.421%2c1614.413%2c605.992C1694.473%2c743.138%2c1816.743%2c857.056%2c1975.325%2c865.457' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M4611.93%2c5302.296C4815.087%2c5306.396%2c5022.688%2c5244.787%2c5132.889%2c5074.068C5252.147%2c4889.319%2c5264.635%2c4650.359%2c5156.278%2c4459.013C5046.438%2c4265.048%2c4834.704%2c4161.784%2c4611.93%2c4154.115C4373.349%2c4145.902%2c4111.976%2c4209.104%2c3998.554%2c4419.16C3888.68%2c4622.647%2c3994.245%2c4863.812%2c4126.165%2c5053.75C4237.372%2c5213.865%2c4417.025%2c5298.362%2c4611.93%2c5302.296' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M2064.822%2c4993.427C2374.887%2c5014.839%2c2713.341%2c4905.528%2c2854.617%2c4628.689C2988.188%2c4366.948%2c2827.251%2c4070.52%2c2658.602%2c3829.881C2519.499%2c3631.4%2c2307.168%2c3505.324%2c2064.822%2c3501.761C1815.629%2c3498.098%2c1568.745%2c3598.569%2c1440.013%2c3811.967C1307.271%2c4032.012%2c1323.635%2c4304.091%2c1443.773%2c4531.263C1573.071%2c4775.754%2c1788.904%2c4974.373%2c2064.822%2c4993.427' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1861.431%2c2314.595C2096.573%2c2322.865%2c2356.844%2c2312.823%2c2490.307%2c2119.051C2638.637%2c1903.692%2c2648.44%2c1602.596%2c2500.2%2c1387.175C2365.682%2c1191.694%2c2098.387%2c1192.54%2c1861.431%2c1205.173C1652.971%2c1216.287%2c1442.97%2c1273.559%2c1330.66%2c1449.529C1209.884%2c1638.763%2c1187.373%2c1886.009%2c1304.775%2c2077.354C1417.832%2c2261.617%2c1645.383%2c2306.996%2c1861.431%2c2314.595' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M725.996%2c3511.768C1034.407%2c3502.911%2c1337.129%2c3390.583%2c1499.881%2c3128.462C1671.592%2c2851.913%2c1672.911%2c2509.99%2c1529.43%2c2217.796C1365.162%2c1883.269%2c1098.58%2c1543.877%2c725.996%2c1552.467C361.489%2c1560.87%2c154.202%2c1930.841%2c-15.738%2c2253.419C-170.391%2c2546.98%2c-297.398%2c2889.394%2c-128.907%2c3175.238C37.772%2c3458.009%2c397.891%2c3521.191%2c725.996%2c3511.768' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M4691.08%2c4093.547C4983.651%2c4099.152%2c5272.751%2c3992.101%2c5433.496%2c3747.58C5611.274%2c3477.149%2c5677.154%2c3123.303%2c5511.785%2c2845.111C5349.158%2c2571.532%2c5008.985%2c2483.497%2c4691.08%2c2498.651C4401.365%2c2512.461%2c4138.959%2c2665.271%2c3995.557%2c2917.385C3853.776%2c3166.648%2c3850.382%2c3473.214%2c3996.348%2c3720.049C4139.787%2c3962.61%2c4409.333%2c4088.15%2c4691.08%2c4093.547' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M2194.957%2c3491.695C2370.858%2c3481.618%2c2509.967%2c3367.042%2c2606.141%2c3219.417C2714.954%2c3052.392%2c2816.958%2c2852.723%2c2727.186%2c2674.738C2631.127%2c2484.288%2c2408.253%2c2402.351%2c2194.957%2c2404.192C1985.119%2c2406.003%2c1783.468%2c2502.138%2c1678.403%2c2683.788C1573.203%2c2865.67%2c1579.998%2c3094.697%2c1693.182%2c3271.72C1798.621%2c3436.631%2c1999.54%2c3502.89%2c2194.957%2c3491.695' fill='rgba(138%2c 75%2c 211%2c 1)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1046'%3e%3crect width='5000' height='5000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    
+
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    object-fit: cover;
+    /* background-size: cover; */
+    overflow-y: scroll;
+   
+}
+.form-wrapper h2 {
+    block-size: fit-content;
+    font-size: 32px;
+}
+.form-wrapper p {
+    display: inline-block;
+    font-size: 16px;
+}
+.details {
+    margin-bottom: 16px;
+}
+
+.form-wrapper {
+    border: 2px solid white;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border-radius: 15px;
+    background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
+    transition: all 0.2s;
+    width: 50%;
+    padding: 20px;
+    gap: 24px;
+
+    height: fit-content;
+    margin: auto;
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+
+}
+form {
+    position: relative;
+}
+.text-input {
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0px solid black;
+    height: 60px;
+    width: 100%;
+    font-size: 20px;
+    resize: none;
+    font-family: "Proxima Nova";
+    transition: all 1s;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    color: black;
+    
+}
+
+.text-input:focus {
+    border: 0px solid black;
+    outline: none;
+
+}
+.text-input + label {
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    transition: 0.2s all;
+    font-size: 16px;
+    color: rgba(138,75,211,1);
+    font-weight: 700;
+}
+.text-input:focus + label {
+    font-size: smaller;
+    top: -20px;
+    transition: 0.2s all;
+    color: white;
+
+}
+
+.text-input:not(:placeholder-shown) + label {
+    font-size: smaller;
+    top: -20px;
+    transition: 0.2s all;
+    color: white;
+}
+
+.text-input + label.has-text {
+    font-size: smaller;
+    top: -20px;
+    transition: 0.2s all;
+}
+
+
+label {
+    color: black;
+    font-family: "Proxima Nova";
+    white-space: nowrap;
+}
+.link-to-stream {
+    color: black;
+}
+.button {
+    text-align: center;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s;
+    transform: scale(1.0);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.button::-webkit-file-upload-button {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s;
+    transform: scale(1.0);
+    font-weight: 700;
+}
+
+.uploadlabel {
+    display: inline-block;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s;
+    transform: scale(1.0);
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.uploadlabel:hover {
+    transition: all 0.2s;
+    transform: scale(1.1);
+    filter: brightness(0.9);
+}
+.fileToUpload {
+    height: 0px;
+    margin: 0px;
+
+}
+.button:hover {
+    transition: all 0.2s; 
+    filter: brightness(0.9);
+    transform: scale(1.1);
+    
+}
+a {
+    color: #cb63ff;
+    text-decoration: none;
+    /* #4D9DE0 */
+}
+.align-horiz {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    flex-direction: row;
+}
+#preview {
+    display: none;
+}
+#fileToUploadError {
+    /* background-color: rgba(255, 0, 0, 0.4);
+    border: 2px solid red;
+    border-radius: 10px;
+    box-sizing: content-box;
+    padding: 5px;
+    margin-bottom: 5px; */
+    color: red;
+}
+.doubleform {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: left;
+    gap: 20px;
+}
+
+.something {
+    position: relative;
+}
+.eventtype {
+    color: black;
+    width: 60px;
+
+}
+.link-to-stream {
+    display: none;
+}
+.stream-link {
+    display: none;
+}
+select {
+
+}
+option {
+    color: black;
+}
+
+
+@media (pointer: coarse), (pointer: none), (max-width: 500px) {
+    .form-wrapper {
+        width: 80%;
+        height: fit-content;
+        margin: auto;
+    }
+    body {
+        align-items: normal;
+        margin: auto;
+        height: 100vh;
+        
+    
+    }
+  }

@@ -92,37 +92,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    
     <title>Логин</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+    <link rel="icon" href="chatbot.png">
+    <link rel="stylesheet" href="forms.css">
     <style type="text/css">
-        .wrapper{ 
-            width: 500px; 
-            padding: 20px;
-            margin: auto;
-        }
+
     </style>
 </head>
 <body>
     
-    <div class="wrapper">
+    <div class="bgimg"></div>
+    <div class="form-wrapper">
         <h2>Логин</h2>
-        <p>Введите email и пароль чтобы зайти в ваш аккаунт. </p>
+        <p class="details">Введите email и пароль чтобы войти в ваш аккаунт. </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                <input type="text" id="email" name="email" class="text-input" value="<?php echo $email; ?>" placeholder=" ">
+                <label for="email">Email</label>
                 <span class="help-block"><?php echo $email_err; ?></span>
-            </div>    
+            </div>  
+
+
+
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Пароль</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="text-input" id="password" placeholder=" ">
+                <label for="password">Пароль</label>
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Зайти">
+
+
+            <div class="form-group nomargin">
+                <input type="submit" class="button" value="Вход">
             </div>
-            <p>Нет аккаунта? <a href="register.php">Создайте новый сейчас</a>.</p>
+            <p>Нет аккаунта? <a href="register.php">Создайте новый сейчас</a></p>
         </form>
     </div>    
 </body>

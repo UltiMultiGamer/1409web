@@ -15,17 +15,20 @@ function time_diff($created_at) {
     $diff = time() - strtotime($created_at);
 
     if ($diff < 60) {
-        return $diff . " second" . ($diff > 1 ? "s" : "") . " ago";
-    } elseif ($diff < 3600) {
-        $diff = floor($diff / 60);
-        return $diff . " minute" . ($diff > 1 ? "s" : "") . " ago";
-    } elseif ($diff < 86400) {
-        $diff = floor($diff / 3600);
-        return $diff . " hour" . ($diff > 1 ? "s" : "") . " ago";
-    } else {
-        $diff = floor($diff / 86400);
-        return $diff . " day" . ($diff > 1 ? "s" : "") . " ago";
-    }
+        return $diff . " секунд назад";
+      } elseif ($diff < 3600) {
+        return floor($diff / 60) . " минут назад";
+      } elseif ($diff < 86400) {
+        return floor($diff / 3600) . " часа назад";
+      } elseif ($diff < 604800) {
+        return floor($diff / 86400) . " дня назад";
+      } elseif ($diff < 2592000) {
+        return floor($diff / 604800) . " недель назад";
+      } elseif ($diff < 31536000) {
+        return floor($diff / 2592000) . " месяца назад";
+      } else {
+        return floor($diff / 31536000) . " года назад";
+      }
 }
 if(isset($_POST['logout'])){
     logout();
@@ -60,6 +63,12 @@ $result = $conn->query($sql);
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+<meta name="description" content="Офицальный сайт самоуправления школы 1409">
+
+    <meta property="og:title" content="MY1409">
+  <meta property="og:description" content="Офицальный сайт самоуправления школы 1409!">
+  <meta property="og:image" content="https://my.school1409.ru/public/logo.png">
+
 <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
 <link rel="icon" href="chatbot.png">
 <link rel="stylesheet" href="temp.css">
@@ -70,15 +79,11 @@ $result = $conn->query($sql);
 
 
 <body>
+<div class="annoucement">Сайт в разработке! 🚧 Оставте предложения или сообщите о ошибках ниже 👇</div>
 <div id="main">
         <div class="navbarCont"style="left: 200px;">
-        <a href="index.html" style="height: 52px;"><div class="logo"></div></a>
-<div class="nav-user-wrapper">
-<?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
-    <h3>Здравствуйте, <?php echo $username; ?>!</h3>
-<?php else : ?>
-    <a href="login.php"><h3>Пожалуйста, зайдите в ваш аккаунт.</h3></a>
-<?php endif; ?>
+        <a href="index.php" style="height: 52px;"><div class="logo"></div></a>
+
         <button id="hamburgerbutton" class="hamburgerbutton" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation" >
             <svg class="hamburger" viewBox = "0 0 100 100" width="40" height="50">
                 <rect class="line first" x="10" y="25px" width="80" height="10" rx="5" fill="#6d6dd6"></rect>
@@ -86,26 +91,38 @@ $result = $conn->query($sql);
                 <rect class="line third" x="10" y="65px" width="80" height="10" rx="5" fill="#6d6dd6"></rect>
             </svg> 
         </button>
+
+        <div class="nav-container">
+  <ul class="nav-list">
+    <li>
+      <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
+        <a href="user.php?uid=<?php echo $id; ?>"><img src="defpfp.png" alt="pfp" width="30" height="30"><i>@<?php echo $username; ?></i></a>
+      <?php } else { ?>
+        <a href="login.php"><img src="defpfp.png" alt="pfp" width="25" height="25"><i>Гость</i></a>
+      <?php } ?>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Legal</a></li>
+    <li>
+      <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
+        <a href="logout.php" >Выход</a>
+      <?php } else { ?>
+        <a href="login.php" >Вход</a>
+      <?php } ?>
+    </li>
+  </ul>
 </div>
-        <div id="nav-menu" class="hidething">
-            <hr>
-            <a href="#">Чат Бот</a>
-            <hr>
-            <a href="#">Контакты</a>
-            <hr>
-            <a href="logout.php">Логаут/Логин</a>
-            <hr>
-        </div>
+
+
+
+        
     </div>
        
         <div class="element-main-extended" style="display:none ;"></div>       
-
-        
         <div class="element-main">
-            
             <h3 id="prompt-question">Знаете, как сделать школу лучше? <br>- Напишите нам!</h3>
-
-
             <form id="message-form">
             <div class="form-field">
                 <textarea class="text-input" type="text" id="message" cols="30" rows="10" placeholder=" " onclick="addClass()"></textarea>
@@ -124,12 +141,20 @@ $result = $conn->query($sql);
                 </button>
             </div>
             </form>
-
-
-              
-            
         </div>
-        
+        <div class="schedule-section">
+            <div id="lesson-time-container">
+                <div id="lesson-and-sched">
+                <p id="lesson"></p>
+                <p id="sched"></p>
+                </div>
+                <div class="linkbtn" id="linkbtn"><a id="watchstream" href=""></a></div>
+                <div id="remaining-container">
+                <!-- <p id="time" onload="currentTime()"></p> -->
+                <p id="remaining"></p> 
+                </div>
+            </div>
+        </div>
         <div class="news-section">
             <p class="news-caption">Последние события:</p>
                     <!-- THIS IS THE CAROSEL -->
@@ -191,27 +216,15 @@ if ($result->num_rows == 10) {
             
         </div>
         
-        <div class="chipscontainer">
+        <!-- <div class="chipscontainer">
              <a href="create.php">📸 Создать Пост</a>
-        </div>
-
-        <div class="schedule-section">
-            <div id="lesson-time-container">
-                <div id="lesson-and-sched">
-                <p id="lesson"></p>
-                <p id="sched"></p>  
-                </div>
-                <div id="remaining-container">
-                <!-- <p id="time" onload="currentTime()"></p> -->
-                <p id="remaining"></p> 
-                </div>
-            </div>
-        </div>
+        </div> -->
         <div>
             <div class="chatbotcaption">
             <img src="chatbot.png" style="width: 30px;height: 30px;"> <p class="news-caption">Чат Бот</p>
             </div>
             <br>
+
             <div class="chipscontainer">
              <a href="https://vk.com/im?sel=-210064026">📕 Подобрать олимпиаду</a>
             </div>
@@ -229,12 +242,12 @@ if ($result->num_rows == 10) {
 </div>
         <footer>
         <div id="footer-cont1">
-          <img src="logo.png">
+          <img src="logo.png" width="100" height="100">
 
             <div id="footer-textcont1">
                 <h1>В Моменте</h1>
                 <h2>ул. Авиаконструктора Микояна, дом 2, Москва, 125167</h2>
-                <h2></h2>
+                <h2> </h2>
                 <h2></h2>
             </div>
         </div>
@@ -242,12 +255,58 @@ if ($result->num_rows == 10) {
         <a href="">
             <img src="telegram.png" alt="telegram" width="50" height="50">
         </a>
-        <a href="">
+        <a href="https://vk.com/im?sel=-210064026">
             <img src="VK.png" alt="vk" width="50" height="50">
         </a>
 
         </div>
         </footer>
+</body>
+</html>
+        <?php
+
+
+
+// Open SQLite database
+$db = new PDO('sqlite:time.db');
+
+// Prepare query to retrieve start and end times, eventtype, eventlink, and eventname
+$stmt = $db->prepare('SELECT starttime, endtime, eventtype, eventlink, eventname FROM time');
+
+// Execute query
+$stmt->execute();
+
+// Fetch results and store in arrays
+$startTimes = array();
+$endTimes = array();
+$eventTypes = array();
+$eventLinks = array();
+$eventNames = array();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $startTimes[] = ($row['starttime']);
+    $endTimes[] = $row['endtime'];
+    $eventTypes[] = $row['eventtype'];
+    $eventLinks[] = $row['eventlink'];
+    $eventNames[] = $row['eventname'];
+}
+
+//append logic elements to the arrays
+// array_push($startTimes, "0");
+// array_push($endTimes, 24+startTimes[0]);
+// array_push($endTimes, startTimes[0]);
+
+
+// Pass arrays to JavaScript
+echo "<script>";
+echo "var startTimes = " . json_encode($startTimes) . ";";
+echo "var endTimes = " . json_encode($endTimes) . ";";
+echo "var eventTypes = " . json_encode($eventTypes) . ";";
+echo "var eventLinks = " . json_encode($eventLinks) . ";";
+echo "var eventNames = " . json_encode($eventNames) . ";";
+echo "</script>";
+?>
+
+
         <script src="webscript.js">
                 
          </script>

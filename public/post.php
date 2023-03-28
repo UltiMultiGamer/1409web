@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Include the database configuration file
-require_once "../auth/postconfig.php";
+require_once "../auth/postconfignoverify.php";
 
 // Get the post ID from the URL parameter
 if (isset($_GET['id'])) {
@@ -57,19 +57,19 @@ function time_diff($created_at) {
     $diff = time() - $timestamp;
   
     if ($diff < 60) {
-      return $diff . " seconds ago";
+      return $diff . " секунд назад";
     } elseif ($diff < 3600) {
-      return floor($diff / 60) . " minutes ago";
+      return floor($diff / 60) . " минут назад";
     } elseif ($diff < 86400) {
-      return floor($diff / 3600) . " hours ago";
+      return floor($diff / 3600) . " часа назад";
     } elseif ($diff < 604800) {
-      return floor($diff / 86400) . " days ago";
+      return floor($diff / 86400) . " дня назад";
     } elseif ($diff < 2592000) {
-      return floor($diff / 604800) . " weeks ago";
+      return floor($diff / 604800) . " недель назад";
     } elseif ($diff < 31536000) {
-      return floor($diff / 2592000) . " months ago";
+      return floor($diff / 2592000) . " месяца назад";
     } else {
-      return floor($diff / 31536000) . " years ago";
+      return floor($diff / 31536000) . " года назад";
     }
   }
 
@@ -149,7 +149,6 @@ if ($prev_post_result->num_rows > 0) {
 
 
 
-
 // Generate the HTML for the post
 ?>
 
@@ -161,18 +160,23 @@ if ($prev_post_result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+    <link rel="icon" href="chatbot.png">
     <link rel="stylesheet" href="viewingpost.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="player.css">
+    <title>Просмотр</title>
+    <!-- PLEASE NOTE I MESSED UP AND NOW THE NEXT IS THE PREVIOUS AND THE PREVIOUS IS THE NEXT!!! what i mean is that the NEXT post is VISUALLY the PREVIOUS, and vice versa  -->
 </head>
 <body>
+<div class="bgimg"></div>
 <div class="superwrapper" id="superwrapper">
 <div class="post-preview">
-    <?php if ($prev_post_result->num_rows > 0) { ?>
-        <a href="<?php echo $prev_post_url; ?>">
-            <?php if ($prev_post_details["media_type"] == "image") { ?>
-                <img src="<?php echo $prev_post_media_path; ?>" alt="<?php echo $prev_post_details["title"]; ?>">
-            <?php } else if ($prev_post_details["media_type"] == "video") { ?>
-                <video src="<?php echo $prev_post_media_path; ?>" controls></video>
+    <?php if ($next_post_result->num_rows > 0) { ?>
+        <a id="next"></a>
+        <a href="<?php echo $next_post_url; ?>">
+            <?php if ($next_post_details["media_type"] == "image") { ?>
+                <img src="<?php echo $next_post_media_path; ?>" alt="<?php echo $next_post_details["title"]; ?>">
+            <?php } else if ($next_post_details["media_type"] == "video") { ?>
+                <video src="<?php echo $next_post_media_path; ?>"></video>
             <?php } ?>
 
         </a>
@@ -180,40 +184,51 @@ if ($prev_post_result->num_rows > 0) {
 </div>
 
 
+
 <div class="post-details">
-        <a id="mainpost"></a>
+<a id="main"></a>
     <?php if ($post_details["media_type"] == "image") { ?>
         <img src="<?php echo $media_path; ?>" alt="<?php echo $post_details["title"]; ?>">
     <?php } else if ($post_details["media_type"] == "video") { ?>
-        <video src="<?php echo $media_path; ?>" controls muted autoplay></video>
+        
+            <video id="mainvid" src="<?php echo $media_path; ?>" loop playsinline></video>
+            
+            <div id="playpause" class="preplay">
+            <div class="play-icon"></div>
+            <div class="pause-icon"></div>
+
+            </div>
     <?php } ?>
     <div class="post-meta">
         <div>
-    <h3 class="title"><?php echo $post_details["title"]; ?></h3>
-    <span class="author"><i><?php echo $post_details["author"]; ?></i></span>
+            <h3 class="title"><?php echo $post_details["title"]; ?></h3>
+            <span class="author"><i><?php echo $post_details["author"]; ?></i></span>
         </div>
-    <div class="rating">
-        <span class="likes"><?php echo $post_details["likes"]; ?>👍</span>
-        <span class="dislikes"><?php echo $post_details["dislikes"]; ?>👎</span>
+        <div class="rating">
+            <span class="likes"><?php echo $post_details["likes"]; ?>👍</span>
+            <span class="dislikes"><?php echo $post_details["dislikes"]; ?>👎</span>
         </div>
-    <p class="description"><?php echo $post_details["description"]; ?></p>
-    <div class="btnwrapper">
-    <?php if (!empty($post_details["button_label"])) { ?>
-        <a href="<?php echo $post_details["button_link"]; ?>" class="button"><?php echo $post_details["button_label"]; ?></a>
-    <?php } ?>
-    </div>
-    <span class="timedifference"><?php echo $time_diff; ?></span>
-        
-        
+        <p class="description"><?php echo $post_details["description"]; ?></p>
+        <div class="btnwrapper">
+            <?php if (!empty($post_details["button_label"])) { ?>
+                <a href="<?php echo $post_details["button_link"]; ?>" class="button"><?php echo $post_details["button_label"]; ?></a>
+            <?php } ?>
+        </div>
+        <span class="timedifference"><?php echo $time_diff; ?></span>
     </div>
 </div>
+
+
+
 <div class="post-preview">
-    <?php if ($next_post_result->num_rows > 0) { ?>
-        <a href="<?php echo $next_post_url; ?>">
-            <?php if ($next_post_details["media_type"] == "image") { ?>
-                <img src="<?php echo $next_post_media_path; ?>" alt="<?php echo $next_post_details["title"]; ?>">
-            <?php } else if ($next_post_details["media_type"] == "video") { ?>
-                <video src="<?php echo $next_post_media_path; ?>" controls></video>
+    <?php if ($prev_post_result->num_rows > 0) { ?>
+        <a id="prev"></a>
+        
+        <a href="<?php echo $prev_post_url; ?>">
+            <?php if ($prev_post_details["media_type"] == "image") { ?>
+                <img src="<?php echo $prev_post_media_path; ?>" alt="<?php echo $prev_post_details["title"]; ?>">
+            <?php } else if ($prev_post_details["media_type"] == "video") { ?>
+                <video src="<?php echo $prev_post_media_path; ?>"></video>
             <?php } ?>
 
         </a>
@@ -226,24 +241,118 @@ if ($prev_post_result->num_rows > 0) {
 
 
 const amongus = document.getElementById("superwrapper")
-amongus.scroll(0,500)
 
+if (document.getElementById("prev") != null) {
+        var prevExist = true
+    } else {
+        var prevExist = false
+    }
+    if (document.getElementById("next") != null) {
+        var nextExist = true
+    } else {
+        var nextExist = false
+    }
+
+    console.log(nextExist)
+    console.log(prevExist)|
+
+    function XOR(a,b) {
+  return ( a || b ) && !( a && b );
+}
+    
+   if (prevExist != nextExist ) {
+     if (prevExist==false) {
+         if (window.innerWidth >=1000) {
+             amongus.scroll(0,1000)
+             console.log("Oversized viewport!")
+         } else {
+             console.log("Standard viewport")
+             amongus.scroll(0,500)
+         }
+     } if (nextExist == false) {
+         
+     } else {
+         if (window.innerWidth >=1000) {
+             amongus.scroll(0,1000)
+             console.log("Oversized viewport!")
+         } else {
+             console.log("Standard viewport")
+             amongus.scroll(0,500)
+         }
+         
+     }
+   } else {
+    console.log("no other posts...")
+   }
+
+// PLEASE NOTE I MESSED UP AND NOW THE NEXT IS THE PREVIOUS AND THE PREVIOUS IS THE NEXT!!!
 function handleScroll() {
-    const nextlink = "<?php echo $next_post_url; ?>"
-    const prevlink = "<?php echo $prev_post_url; ?>"
-  const superwrapper = document.querySelector('#superwrapper');
+    const nextlink = "<?php echo $prev_post_url; ?>"
+    const prevlink = "<?php echo $next_post_url; ?>"
+    
+    const superwrapper = document.querySelector('#superwrapper');
 
-  if (superwrapper.scrollTop === 0) {
-    // User has scrolled to the top of #superwrapper
-    window.location.href = prevlink;
-  } else if (superwrapper.scrollTop + superwrapper.clientHeight === superwrapper.scrollHeight) {
-    // User has scrolled to the bottom of #superwrapper
-    window.location.href = nextlink;
-  }
+
+if (prevExist != nextExist ) {
+        
+    if (nextExist == false) {
+      if (superwrapper.scrollTop + superwrapper.clientHeight+1 >= superwrapper.scrollHeight) {
+        // User has scrolled to the bottom of #superwrapper
+        window.location.href = nextlink;
+      }
+    } if(prevExist == false) {
+        if (superwrapper.scrollTop === 0) {
+        // User has scrolled to the top of #superwrapper
+        window.location.href = prevlink;
+      }
+    } else {
+      if (superwrapper.scrollTop === 0) {
+        // User has scrolled to the top of #superwrapper
+        window.location.href = prevlink;
+      } else if (superwrapper.scrollTop + superwrapper.clientHeight >= superwrapper.scrollHeight-10) {
+        // User has scrolled to the bottom of #superwrapper
+        window.location.href = nextlink;
+      }
+    }
+      
+} else {
+    console.log("no other posts...")
+}
 }
 
 document.querySelector('#superwrapper').onscroll = handleScroll;
 
+const mainvid = document.querySelector("#mainvid")
+const playstat = document.querySelector(".preplay")
+
+
+
+if (playstat != null) {
+    playstat.addEventListener("click", handlePlay);
+    
+    function handlePlay() {
+        if (playstat.classList[0] == "playing") {
+        mainvid.pause()
+        playstat.classList.remove("playing")
+        playstat.classList.add("paused")
+        playstat.style.opacity = "1"
+        return 0
+    } if (playstat.classList[0]  == "paused") {
+        mainvid.play()
+        playstat.classList.remove("paused")
+        playstat.classList.add("playing") 
+        playstat.style.opacity = "0"
+        return 0
+    } if (playstat.classList[0] == "preplay"  ) {
+        
+        mainvid.play()
+        playstat.classList.remove("preplay")
+        playstat.classList.add("playing")
+        playstat.style.opacity = "0"
+        return 0
+    }
+    }
+}
 
 </script>
 </html>

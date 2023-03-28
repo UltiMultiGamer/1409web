@@ -1,0 +1,48 @@
+#playpause {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    opacity: 1;
+    
+}
+
+
+.pause-icon {
+    position: absolute;
+    visibility: hidden;
+    transition: visibility 0.2s;
+    background-size: contain;
+    background-image: url(pause.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    opacity: 0.6;
+}
+
+.play-icon{
+    position: absolute;
+    visibility: visible;
+    transition: visibility 0.2s;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(play.png);
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    opacity: 0.6;
+}
