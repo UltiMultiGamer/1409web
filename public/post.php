@@ -160,7 +160,7 @@ if ($prev_post_result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
-    <link rel="icon" href="chatbot.png">
+    <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="viewingpost.css">
     <link rel="stylesheet" href="player.css">
     <title>Просмотр</title>
@@ -190,31 +190,46 @@ if ($prev_post_result->num_rows > 0) {
     <?php if ($post_details["media_type"] == "image") { ?>
         <img src="<?php echo $media_path; ?>" alt="<?php echo $post_details["title"]; ?>">
     <?php } else if ($post_details["media_type"] == "video") { ?>
-        
-            <video id="mainvid" src="<?php echo $media_path; ?>" loop playsinline></video>
+
+
             
+            <video id="mainvid" src="<?php echo $media_path; ?>" loop playsinline></video>
             <div id="playpause" class="preplay">
             <div class="play-icon"></div>
             <div class="pause-icon"></div>
 
             </div>
     <?php } ?>
+    <div class="exit"></div>
+    <div class="sidebar">
+
+                <div class="like"><img src="heart.png" alt="like" width="50" height="50"></div>
+                <div class="dislike"><img src="cross.png" alt="dislike" width="44" height="44"></div>
+               <!-- <div class="comments"><img src="comment.png" alt="comment" width="50" height="50"></div> -->
+                
+            </div>
     <div class="post-meta">
         <div>
-            <h3 class="title"><?php echo $post_details["title"]; ?></h3>
-            <span class="author"><i><?php echo $post_details["author"]; ?></i></span>
+            <!-- <h3 class="title"><?php echo $post_details["title"]; ?></h3> -->
+            <span class="author"><span class="author-content"><?php echo $post_details["author"]; ?></span><span class="timedifference"><?php echo $time_diff; ?></span></span>
         </div>
-        <div class="rating">
+        <!-- <div class="rating">
             <span class="likes"><?php echo $post_details["likes"]; ?>👍</span>
             <span class="dislikes"><?php echo $post_details["dislikes"]; ?>👎</span>
-        </div>
-        <p class="description"><?php echo $post_details["description"]; ?></p>
+        </div> -->
+        <p class="description" id="description-main"><?php echo $post_details["description"]; ?></p>
         <div class="btnwrapper">
             <?php if (!empty($post_details["button_label"])) { ?>
                 <a href="<?php echo $post_details["button_link"]; ?>" class="button"><?php echo $post_details["button_label"]; ?></a>
             <?php } ?>
         </div>
-        <span class="timedifference"><?php echo $time_diff; ?></span>
+        
+    </div>
+    <div class="fulldesc-cont">
+        <div class="fulldesc">
+            <span class="fulldesc-title"><h2><?php echo $post_details["title"]; ?></h2></span>
+            <span class="fulldesc-description"><?php echo $post_details["description"]; ?></span>
+        </div>
     </div>
 </div>
 
@@ -260,7 +275,8 @@ if (document.getElementById("prev") != null) {
   return ( a || b ) && !( a && b );
 }
     
-   if (prevExist != nextExist ) {
+   if (prevExist != nextExist || prevExist == nextExist ) {
+    
      if (prevExist==false) {
          if (window.innerWidth >=1000) {
              amongus.scroll(0,1000)
@@ -269,6 +285,7 @@ if (document.getElementById("prev") != null) {
              console.log("Standard viewport")
              amongus.scroll(0,500)
          }
+         
      } if (nextExist == false) {
          
      } else {
@@ -293,7 +310,7 @@ function handleScroll() {
     const superwrapper = document.querySelector('#superwrapper');
 
 
-if (prevExist != nextExist ) {
+if (prevExist != nextExist || (prevExist == true || nextExist == true) ) {
         
     if (nextExist == false) {
       if (superwrapper.scrollTop + superwrapper.clientHeight+1 >= superwrapper.scrollHeight) {
@@ -316,7 +333,8 @@ if (prevExist != nextExist ) {
     }
       
 } else {
-    console.log("no other posts...")
+
+    
 }
 }
 
@@ -353,6 +371,15 @@ if (playstat != null) {
     }
     }
 }
+
+
+function toggleFullDescription() {
+  const fullDesc = document.querySelector('.fulldesc');
+  fullDesc.classList.toggle('visible');
+}
+
+const descriptionMain = document.getElementById('description-main');
+descriptionMain.addEventListener('click', toggleFullDescription);
 
 </script>
 </html>

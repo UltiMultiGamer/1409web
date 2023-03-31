@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
     <title>Create New Post</title>
+    <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="forms.css">
     <style type="text/css">
     </style>
@@ -85,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check image dimensions
     $min_width = 100; // set minimum width
     $min_height = 100; // set minimum height
-    $max_width = 2000; // set maximum width
-    $max_height = 2000; // set maximum height
+    $max_width = 2600; // set maximum width
+    $max_height = 2600; // set maximum height
     list($width, $height) = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if ($width < $min_width || $height < $min_height) {
         echo "<script>document.getElementById('fileToUploadError').innerHTML='Извините, ваш файл слишком маленький.';</script>";
@@ -104,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 5000000) {
+    if ($_FILES["fileToUpload"]["size"] > 50000000) {
         echo "<script>document.getElementById('fileToUploadError').innerHTML='Извините, ваш файл слишком большой.';</script>";
         $uploadOk = 0;
     }

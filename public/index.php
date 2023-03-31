@@ -63,14 +63,14 @@ $result = $conn->query($sql);
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-<meta name="description" content="Офицальный сайт самоуправления школы 1409">
+<meta name="description" content="В моменте с 1409 💫">
 
-    <meta property="og:title" content="MY1409">
-  <meta property="og:description" content="Офицальный сайт самоуправления школы 1409!">
+    <meta property="og:title" content="ВМоменте">
+  <meta property="og:description" content="В моменте с 1409 💫">
   <meta property="og:image" content="https://my.school1409.ru/public/logo.png">
 
 <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
-<link rel="icon" href="chatbot.png">
+<link rel="icon" href="logo.png">
 <link rel="stylesheet" href="temp.css">
 <title>MY1409</title>
 </head>
@@ -101,10 +101,9 @@ $result = $conn->query($sql);
         <a href="login.php"><img src="defpfp.png" alt="pfp" width="25" height="25"><i>Гость</i></a>
       <?php } ?>
     </li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Legal</a></li>
+    <li><a href="https://info.school1409.ru/support">Техподдержка</a></li>
+    <li><a href="https://info.school1409.ru/idea">Фидбек</a></li>
+    <li><a href="https://info.school1409.ru/my1409">О нас</a></li>
     <li>
       <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
         <a href="logout.php" >Выход</a>

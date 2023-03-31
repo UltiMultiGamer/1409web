@@ -27,7 +27,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   <meta property="og:image" content="https://my.school1409.ru/public/logo.png">
 
 <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
-<link rel="icon" href="chatbot.png">
+<link rel="icon" href="logo.png">
 <link rel="stylesheet" href="temp.css">
 <title>MY1409</title>
 </head>
@@ -57,11 +57,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       <?php } else { ?>
         <a href="login.php"><img src="defpfp.png" alt="pfp" width="25" height="25"><i>Гость</i></a>
       <?php } ?>
-    </li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Legal</a></li>
+      </li>
+    <li><a href="https://info.school1409.ru/support">Техподдержка</a></li>
+    <li><a href="https://info.school1409.ru/idea">Фидбек</a></li>
+    <li><a href="https://info.school1409.ru/my1409">О нас</a></li>
     <li>
       <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
         <a href="logout.php" >Выход</a>
@@ -71,8 +70,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     </li>
   </ul>
 </div>
-            
-
         </div> 
 
         <!-- end of navbar -->

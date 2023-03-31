@@ -10,6 +10,7 @@
     <title></title>
     <link rel="stylesheet" href="forms.css">
     <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+    <link rel="icon" href="logo.png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>

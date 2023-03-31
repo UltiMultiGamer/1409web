@@ -26,6 +26,7 @@ body {
     padding-right: 30px;
     transition: 0.2s all;
     overflow-x: hidden;
+    
 }
 body > * {
     font-family: "Proxima Nova";
@@ -188,7 +189,7 @@ body > * {
     justify-content: center; */
     line-height: 45px;
     background-color: #fec108;
-    width: 100%;
+    width: calc(100% - 20px);
     margin: auto;
     text-align: center;
     height: 45px;
@@ -199,6 +200,8 @@ body > * {
     white-space: nowrap;
     margin: 0px;
     text-overflow: ellipsis;
+    padding-right: 10px;
+    padding-left: 10px;
     
 
 }

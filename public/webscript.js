@@ -99,7 +99,7 @@
                 }
                 var text = ""
                 if (eventNames[i]==undefined) {
-                  text = "Free Time";
+                  text = "Уроки закончились! 🎉";
               } else {
                   text = eventNames[i];
               }
@@ -135,7 +135,8 @@
             }
             }
             function updateLink(link) {
-              if (link != undefined) {
+              if (link != undefined && link != "" && link != " " ) {
+              
               document.getElementById("linkbtn").style.visibility = "visible"
               document.getElementById("watchstream").href = link
               document.getElementById("watchstream").innerText = "Смотреть"
